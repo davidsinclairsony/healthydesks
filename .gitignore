@@ -1,0 +1,7 @@
+media/catalog/product/cache
+media/temp
+var/cache
+var/session
+var/tmp
+var/locks
+app/etc/local.xml
