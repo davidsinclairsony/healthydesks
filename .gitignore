@@ -6,3 +6,4 @@ var/tmp
 var/locks
 var/backups
 app/etc/local.xml
+skin/frontend/healthydesks/default/scss/.sass-cache
