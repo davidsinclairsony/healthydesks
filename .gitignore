@@ -4,4 +4,5 @@ var/cache
 var/session
 var/tmp
 var/locks
+var/backups
 app/etc/local.xml
