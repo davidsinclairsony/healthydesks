@@ -51,7 +51,7 @@
     .skip-cart {
         position: absolute;
         top: 80px;
-        right: 0;
+        right: 207px;
         width: auto;
         padding: 0 0 0 10px;
     }
@@ -70,6 +70,14 @@
         background: white;
     }
 
+}
+
+@include bp(min-width, $bp-xlarge + 1) {
+
+    .skip-cart {
+        right: 0;
+    }
+    
 }
 
 /* -------------------------------------------- *

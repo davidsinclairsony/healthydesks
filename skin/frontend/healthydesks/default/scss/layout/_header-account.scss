@@ -52,7 +52,7 @@
     .skip-account {
         position: absolute;
         top: 80px;
-        right: 115px;
+        right: 300px;
         width: auto;
         padding: 0 10px;
         text-transform: uppercase;
@@ -82,6 +82,14 @@
         color: $c-action;
     }
 
+}
+
+@include bp(min-width, $bp-xlarge + 1) {
+
+    .skip-account {
+        right: 115px;
+    }
+    
 }
 
 /* -------------------------------------------- *

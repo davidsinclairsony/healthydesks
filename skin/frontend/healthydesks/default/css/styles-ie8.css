@@ -3596,8 +3596,8 @@ a.skip-link {
   display: block;
   position: absolute;
   right: 0;
-  top: 5px;
-  width: 200px;
+  top: 83px;
+  width: 180px;
   height: 50px;
   padding: 0;
 }
@@ -3621,8 +3621,6 @@ a.skip-link {
   padding-left: 15px;
   font-family: "Open Sans", sans-serif;
   font-size: 12px;
-  border: none;
-  border-left: 1px solid #cccccc;
 }
 
 #search_mini_form .search-button {
@@ -3655,6 +3653,10 @@ a.skip-link {
 #search_mini_form .search-button:active:before {
   margin-top: -13px;
   margin-left: -13px;
+}
+
+#search {
+  border: 1px solid #cccccc;
 }
 
 /**
@@ -3697,7 +3699,7 @@ a.skip-link {
 .skip-account {
   position: absolute;
   top: 80px;
-  right: 115px;
+  right: 300px;
   width: auto;
   padding: 0 10px;
   text-transform: uppercase;
@@ -3784,7 +3786,7 @@ a.skip-link {
 .skip-cart {
   position: absolute;
   top: 80px;
-  right: 0;
+  right: 207px;
   width: auto;
   padding: 0 0 0 10px;
 }

@@ -4217,10 +4217,15 @@ a.skip-link {
     display: block;
     position: absolute;
     right: 0;
-    top: 5px;
-    width: 200px;
+    top: 83px;
+    width: 180px;
     height: 50px;
     padding: 0;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  #header-search {
+    top: 127px;
   }
 }
 /* ============================================ *
@@ -4242,8 +4247,6 @@ a.skip-link {
   padding-left: 15px;
   font-family: "Open Sans", sans-serif;
   font-size: 12px;
-  border: none;
-  border-left: 1px solid #cccccc;
 }
 
 #search_mini_form .search-button {
@@ -4278,6 +4281,17 @@ a.skip-link {
   margin-left: -13px;
 }
 
+@media only screen and (min-width: 980px) {
+  #search {
+    border: 1px solid #cccccc;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  #search {
+    border: none;
+    border-left: 1px solid #cccccc;
+  }
+}
 /**
  * Magento
  *
@@ -4319,7 +4333,7 @@ a.skip-link {
   .skip-account {
     position: absolute;
     top: 80px;
-    right: 115px;
+    right: 300px;
     width: auto;
     padding: 0 10px;
     text-transform: uppercase;
@@ -4345,6 +4359,11 @@ a.skip-link {
 
   #header-account a:hover {
     color: #0083d7;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .skip-account {
+    right: 115px;
   }
 }
 /* -------------------------------------------- *
@@ -4407,7 +4426,7 @@ a.skip-link {
   .skip-cart {
     position: absolute;
     top: 80px;
-    right: 0;
+    right: 207px;
     width: auto;
     padding: 0 0 0 10px;
   }
@@ -4422,6 +4441,11 @@ a.skip-link {
     right: 0;
     width: 320px;
     background: white;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .skip-cart {
+    right: 0;
   }
 }
 /* -------------------------------------------- *
