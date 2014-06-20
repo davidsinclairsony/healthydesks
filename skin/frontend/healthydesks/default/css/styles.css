@@ -3710,6 +3710,20 @@ body {
   .header-language-background {
     display: none;
   }
+
+  .welcome-message {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .welcome-message {
+    width: auto;
+    position: absolute;
+    top: 10px;
+    left: auto;
+    right: 0;
+    font-size: 16px;
+  }
 }
 /* ============================================ *
  * Logo
@@ -3804,10 +3818,21 @@ a.skip-link {
   .skip-link:last-child {
     border-right: 0;
   }
+
+  .skip-links .skip-phone {
+    right: 10px;
+    top: 35px;
+  }
 }
 @media only screen and (min-width: 500px) {
   .skip-link {
     width: 25%;
+  }
+}
+@media only screen and (max-width: 479px) {
+  .skip-links .skip-phone {
+    font-size: 14px;
+    top: 25px;
   }
 }
 /* -------------------------------------------- *

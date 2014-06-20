@@ -3214,6 +3214,15 @@ body {
   color: #e6e6e6;
 }
 
+.welcome-message {
+  width: auto;
+  position: absolute;
+  top: 10px;
+  left: auto;
+  right: 0;
+  font-size: 16px;
+}
+
 /* ============================================ *
  * Logo
  * ============================================ */

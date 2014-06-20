@@ -103,6 +103,25 @@
     .header-language-background {
         display: none;
     }
+	
+	 .welcome-message {
+		display: none;
+	 }
+
+}
+
+// ---------------------------------------------
+
+@include bp(max-width, $bp-xlarge) {
+
+    .welcome-message {
+		width: auto;
+		position: absolute;
+		top: 10px;
+		left: auto;
+		right: 0;
+		font-size: 16px;
+	}
 
 }
 
@@ -218,6 +237,11 @@ a.skip-link {
     .skip-link:last-child {
         border-right: 0;
     }
+    
+    .skip-links .skip-phone {
+		right: 10px;
+		top: 35px;
+	}
 
 }
 
@@ -228,6 +252,15 @@ a.skip-link {
     .skip-link {
         width: 25%;
     }
+
+}
+
+@include bp(max-width, $bp-xsmall) {
+
+    .skip-links .skip-phone {
+			font-size: 14px;
+			top: 25px;
+		}
 
 }
 
