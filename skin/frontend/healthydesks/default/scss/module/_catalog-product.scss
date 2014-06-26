@@ -32,14 +32,16 @@
 
         .extra-info {
             .ratings {
-                .rating-box,
+                /* .rating-box, */
                 .amount {
                     float: left;
                 }
 
                 .rating-box {
-                    margin-top: 8px;
+                    /* margin-top: 8px; */
                     margin-right: $gap;
+                    display: inline-block;
+                    vertical-align: top;
                 }
 
                 &:after {
@@ -61,7 +63,7 @@
     }
 
     .product-shop {
-        width: 50%;
+        width: 35%;
         float: right;
 
         .product-name {
@@ -80,14 +82,14 @@
         }
 
         .price-info {
-            float: right;
+            /* float: left;
             padding-left: $trim/2;
-            text-align: right;
+            text-align: right; */
         }
 
         .extra-info,
         .price-info {
-            max-width: 50%;
+            /* max-width: 50%; */
             margin-bottom: $box-spacing;
         }
 
@@ -219,7 +221,7 @@
 }
 
 .product-img-box {
-    width: 50%;
+    width: 65%;
     float: left;
 
     .product-name {
@@ -230,6 +232,7 @@
 
     .product-image {
         margin-bottom: $box-spacing;
+        border: 1px solid $c-module-border;
     }
 
     .product-image img {
@@ -566,8 +569,10 @@
 .product-view .ratings {
     .rating-links {
         clear: left;
-        float: left;
+        /* float: left; */
         margin-top: 0;
+        display: inline-block;
+        vertical-align: top;
     }
 }
 

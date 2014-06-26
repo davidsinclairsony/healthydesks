@@ -234,6 +234,7 @@ body.cms-home ul.articles {
     .promos > li:nth-child(3n) {
         margin-right: 0;
     }
+    
 }
 
 @include bp(max-width, $bp-medium) {
@@ -245,6 +246,40 @@ body.cms-home ul.articles {
 		&:nth-child(n + 2) a div {
 			padding: 40px 0 0 0;
 			background: url(../images/arrow-icon.png) no-repeat center 0px;
+		}
+	}
+	
+	body.cms-home ul.articles {
+		li {
+			&:last-child {
+				
+			}
+		
+			article {
+				width: 100%;
+				padding: 0;
+				display: block;
+			}
+			
+			aside {
+				width: 100%;
+				padding: 20px 0 0 0;
+				display: block;
+				
+				img {
+					
+				}
+			}
+			
+			&:nth-child(even) {
+				article {
+					padding: 20px 0 0 0;
+				}
+				
+				aside {
+					padding: 0;
+				}
+			}
 		}
 	}
 }

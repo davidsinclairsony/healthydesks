@@ -2401,7 +2401,7 @@ a.button:hover {
 /* -------------------------------------------- *
  * Product Image
  */
-.product-image,
+/* .product-image, */
 .no-touch .product-img-box .product-image:not(.zoom-available):hover {
   position: relative;
   display: block;
@@ -3719,7 +3719,7 @@ body {
   .welcome-message {
     width: auto;
     position: absolute;
-    top: 10px;
+    top: 45px;
     left: auto;
     right: 0;
     font-size: 16px;
@@ -3803,13 +3803,18 @@ a.skip-link {
 
 .skip-links .skip-phone {
   position: absolute;
-  top: 45px;
+  top: 10px;
   right: 0;
   font-weight: 700;
   font-size: 22px;
   font-family: "Open Sans", sans-serif;
 }
 
+@media only screen and (min-width: 1199px) {
+  .skip-links .skip-phone {
+    top: 45px;
+  }
+}
 @media only screen and (max-width: 770px) {
   .skip-link {
     border-right: 1px solid #EDEDED;
@@ -4010,7 +4015,6 @@ a.skip-link {
   line-height: 30px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
-  font-size: 16px;
 }
 .nav-primary li {
   position: relative;
@@ -4096,7 +4100,8 @@ a.skip-link {
     padding: 8px 15px 10px 0;
   }
   .nav-primary a.level0 {
-    padding: 0 15px;
+    padding: 0 5px;
+    font-size: 14px;
   }
   .nav-primary li.level0,
   .nav-primary a.level0 {
@@ -4164,6 +4169,17 @@ a.skip-link {
   .no-touch li:hover > ul {
     display: block;
     /* Force display */
+  }
+}
+@media only screen and (min-width: 980px) {
+  .nav-primary a.level0 {
+    padding: 0 10px;
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .nav-primary a.level0 {
+    padding: 0 15px;
   }
 }
 /**
@@ -5691,13 +5707,17 @@ p.product-name a:hover {
 /* ============================================ *
  * Catalog - Product
  * ============================================ */
-.product-view .product-essential .extra-info .ratings .rating-box,
+.product-view .product-essential .extra-info .ratings {
+  /* .rating-box, */
+}
 .product-view .product-essential .extra-info .ratings .amount {
   float: left;
 }
 .product-view .product-essential .extra-info .ratings .rating-box {
-  margin-top: 8px;
+  /* margin-top: 8px; */
   margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
 }
 .product-view .product-essential .extra-info .ratings:after {
   content: '';
@@ -5716,7 +5736,7 @@ p.product-name a:hover {
   border: 0;
 }
 .product-view .product-shop {
-  width: 50%;
+  width: 35%;
   float: right;
 }
 .product-view .product-shop .product-name {
@@ -5733,13 +5753,13 @@ p.product-name a:hover {
   clear: left;
 }
 .product-view .product-shop .price-info {
-  float: right;
-  padding-left: 15px;
-  text-align: right;
+  /* float: left;
+  padding-left: $trim/2;
+  text-align: right; */
 }
 .product-view .product-shop .extra-info,
 .product-view .product-shop .price-info {
-  max-width: 50%;
+  /* max-width: 50%; */
   margin-bottom: 10px;
 }
 .product-view .product-shop .short-description {
@@ -5831,7 +5851,7 @@ p.product-name a:hover {
   }
 }
 .product-img-box {
-  width: 50%;
+  width: 65%;
   float: left;
 }
 .product-img-box .product-name h1 {
@@ -5839,6 +5859,7 @@ p.product-name a:hover {
 }
 .product-img-box .product-image {
   margin-bottom: 10px;
+  border: 1px solid #cccccc;
 }
 .product-img-box .product-image img {
   max-width: 100%;
@@ -6299,8 +6320,10 @@ p.product-name a:hover {
 }
 .product-view .ratings .rating-links {
   clear: left;
-  float: left;
+  /* float: left; */
   margin-top: 0;
+  display: inline-block;
+  vertical-align: top;
 }
 
 #product-attribute-specs-table {
@@ -9506,7 +9529,7 @@ div.paypal-logo span > img {
   height: 13px;
   overflow: hidden;
   text-indent: -9999px;
-  width: 65px;
+  /* width: 65px; */
 }
 .ratings-table .rating-box .rating {
   background-position: 0 -600px;
@@ -11152,6 +11175,23 @@ body.cms-home ul.articles li:nth-child(even) aside {
   body .promos > li:nth-child(n + 2) a div {
     padding: 40px 0 0 0;
     background: url(../images/arrow-icon.png) no-repeat center 0px;
+  }
+
+  body.cms-home ul.articles li article {
+    width: 100%;
+    padding: 0;
+    display: block;
+  }
+  body.cms-home ul.articles li aside {
+    width: 100%;
+    padding: 20px 0 0 0;
+    display: block;
+  }
+  body.cms-home ul.articles li:nth-child(even) article {
+    padding: 20px 0 0 0;
+  }
+  body.cms-home ul.articles li:nth-child(even) aside {
+    padding: 0;
   }
 }
 @media only screen and (min-width: 880px) {

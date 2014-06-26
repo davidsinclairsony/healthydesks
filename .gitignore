@@ -1,5 +1,7 @@
 media/catalog/product/cache
 media/temp
+media/css
+media/js
 var/cache
 var/session
 var/tmp

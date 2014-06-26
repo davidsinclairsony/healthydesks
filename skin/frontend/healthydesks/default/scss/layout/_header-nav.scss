@@ -121,7 +121,6 @@ $nav-primary-height: 30px;
         line-height: $nav-primary-height;
         font-family: $f-stack-special;
         font-weight: 600;
-        font-size: 16px;
     }
 
     li {
@@ -209,7 +208,8 @@ $nav-primary-height: 30px;
         }
         
         a.level0 {
-            padding: 0 15px;
+            padding: 0 5px;
+            font-size: 14px
         }
 
         li.level0,
@@ -284,4 +284,29 @@ $nav-primary-height: 30px;
     .no-touch li:hover > ul {
       display: block; /* Force display */
     }
+}
+
+@include bp(min-width, $bp-large + 1) {
+	
+	.nav-primary {
+
+        a.level0 {
+            padding: 0 10px;
+            font-size: 16px
+        }
+        
+    }
+	
+}
+
+@include bp(min-width, $bp-xlarge + 1) {
+	
+	.nav-primary {
+
+        a.level0 {
+            padding: 0 15px;
+        }
+        
+    }
+	
 }
