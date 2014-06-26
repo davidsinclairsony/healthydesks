@@ -6629,6 +6629,13 @@ p.product-name a:hover {
   display: none;
 }
 
+/* -------------------------------------------- *
+ * For content in the tabs
+ */
+.tab-content img {
+  max-width: 100%;
+}
+
 /**
  * Magento
  *
