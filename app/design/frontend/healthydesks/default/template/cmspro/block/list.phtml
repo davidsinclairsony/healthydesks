@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl()?>css/cmspro/style.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl()?>css/cmspro/cmspro.css" />
+<div class="clear"></div>
+
+<?php $news = $this->getNews(); ?>
+<?php
+    if($news->count() < 1):
+?>
+	<div class="postWrapper">
+	<p><?php echo Mage::helper('cmspro')->__('Not found news'); ?></p>
+	</div>
+	<?php
+	    else:
+	    $newsThumbnailSize = $this->getNewsThumbnailSize();
+	?>
+	<div class="postWrapper">
+	<?php foreach ($news as $n): 
+		$url = Mage::getModel('core/url_rewrite')->load($n->getUrlRewriteId());
+		?>
+		<div class="cmspro_list_item">
+		    <div><h3><a href="<? echo Mage::getBaseUrl().$url->getRequestPath();?>"><? echo $n->getTitle();?></a></h3></div>
+		    <div style="font-size:9px;"><?php echo $n->getCreatedTime(); ?></div>
+		    <div class="cmspro_list_content">
+		    	<div class="cmspro_list_images"><img src="<?php echo $this->helper('cmspro/image')->init($n->getImages())->resize($newsThumbnailSize['width'], $newsThumbnailSize['height']) ?>"/></div>
+		    	<div class="cmspro_list_summary">
+					<? echo substr($n->getSummary(),0,400)."..." ; ?>
+					<a href="<? echo Mage::getBaseUrl().$url->getRequestPath();?>"><?php echo Mage::helper('cmspro')->__('See More');?></a>
+		    	</div>
+		    </div>
+		    <div class="cmspro_clear">&nbsp;</div> 
+	    </div>    
+	<?php endforeach; ?>
+	</div>
+	<?php 
+	echo $this->getToolbarHtml(); 
+?> 
+<?php
+    endif;
+?>

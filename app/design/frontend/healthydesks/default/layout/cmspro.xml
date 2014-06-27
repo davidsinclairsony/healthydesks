@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    	<reference name="head">
+			<action method="addJs"><script>mw_js/jquery.js</script></action>
+			<action method="addJs"><script>mw_js/jquery_noconflict.js</script></action>			
+			<action method="addItem"><type>skin_js</type><name>cmspro/js/accordion.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>cmspro/js/accordion_menu.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>cmspro/js/hoverIntent.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>cmspro/js/superfish.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>cmspro/js/jquery-accordion-menu.js</name></action>			
+			<action method="addCss"><stylesheet>cmspro/css/smartmenu.css</stylesheet></action>
+			<action method="addCss"><stylesheet>cmspro/css/superfish.css</stylesheet></action>
+			<action method="addCss"><stylesheet>cmspro/css/superfish-vertical.css</stylesheet></action>			
+			<action method="addCss"><stylesheet>css/cmspro/cmspro.css</stylesheet></action>		
+			<action method="addItem"><type>skin_css</type><name>css/cmspro-iestyles.css</name><params/><if>lt IE 8</if></action>
+		</reference>
+		
+        <!-- Mage_Catalog -->
+		<!--
+        <reference name="top.menu">
+        	<remove name="catalog.topnav" />
+            <block type="catalog/navigation" name="cmspro.catalog.topnav" template="cmspro/category/top.phtml"/>
+        </reference>
+        -->
+		
+        <reference name="left" >           
+			<block type="cmspro/category" name="cmspro.categories.accordin_left" before="-" >
+				<action method="setTemplate">
+					<template helper="cmspro/category/displayMenuAccordionLeft"/>
+				</action>
+			</block> 
+            <block type="cmspro/category" name="cmspro.categories.dropdown_left" before="-" >
+            	<action method="setTemplate">
+					<template helper="cmspro/category/displayMenuDropdownLeft"/>
+				</action>
+            </block>
+			<block type="cmspro/feature" name="cmspro.news.latest.left" after="cmspro.categories.accordin_left" >
+				<action method="setTemplate">
+					<template helper="cmspro/data/displayFeatureLeft"/>
+				</action>
+			</block>	
+        </reference>
+        <reference name="right">               
+			<block type="cmspro/category" name="cmspro.categories.accordin_right" before="-" >
+				<action method="setTemplate">
+					<template helper="cmspro/category/displayMenuAccordionRight"/>
+				</action>
+			</block>
+            <block type="cmspro/category" name="cmspro.categories.dropdown_right" before="-" >
+            	<action method="setTemplate">
+					<template helper="cmspro/category/displayMenuDropdownRight"/>
+				</action>
+            </block>
+			<block type="cmspro/feature" name="cmspro.news.latest.right" before="-" >
+				<action method="setTemplate">
+					<template helper="cmspro/data/displayFeatureRight"/>
+				</action>
+			</block>	
+        </reference>
+        
+        <reference name="footer_links">
+            <!--  <action method="addLink" translate="label title" module="cmspro" ><label>Rss News</label><url>cmspro/rss</url><title>Rss News</title><prepare>true</prepare><urlParams/><position/><li/><a>class="link-rss"</a></action>-->
+       		<action method="addLink" translate="label title" module="cmspro"><label>News Site Map</label><url>cmspro/sitemap/category</url><title>News Site Map</title><prepare>true</prepare><urlParams/><position>10</position><li/></action>
+        </reference>
+        
+    </default>
+    
+    <cmspro_index_index>
+		<reference name="root">
+            <!--<action method="setTemplate"><template>page/3columns.phtml</template></action>
+        -->
+      		<action method="setTemplate">
+				<template helper="cmspro/data/chooseColumnLayout"/>
+			</action>
+        </reference> 
+    	<reference name="left" >
+            <block type="cmspro/search" name="cmspro.categories.search.left" template="cmspro/search/search.phtml" before="cmspro.news.latest.left"/>
+            <remove name="tags_popular"/>
+    		<block type="cmspro/populartags" name="news_tags_popular" template="cmspro/populartags.phtml"/>
+        </reference>
+		<reference name="right" >
+            <block type="cmspro/search" name="cmspro.categories.search.right" template="cmspro/search/search.phtml" before="-" />
+        </reference>
+        <reference name="content">
+        	<block type="cmspro/feature" name="cmspro.news.feature" template="cmspro/block/feature.phtml"></block>
+            <block type="cmspro/list" name="cmspro.list" template="cmspro/list/list.phtml" />
+        </reference>
+    </cmspro_index_index>
+	
+    <cmspro_search_result>
+    	<reference name="root">
+      		<action method="setTemplate">
+				<template helper="cmspro/data/chooseColumnLayout"/>
+			</action>
+        </reference> 
+    	<reference name="left" >
+            <block type="cmspro/search" name="cmspro.search.left" template="cmspro/search/search.phtml" before="-" />
+            <remove name="tags_popular"/>
+    		<block type="cmspro/populartags" name="news_tags_popular" template="cmspro/populartags.phtml"/>
+        </reference>
+        <reference name="content">
+            <block type="cmspro/search" name="cmspro.result" template="cmspro/search/result.phtml" />
+        </reference>
+		<reference name="right" >
+            <block type="cmspro/search" name="cmspro.search.right" template="cmspro/search/search.phtml" before="-" />
+        </reference>
+    </cmspro_search_result>
+    
+    <cmspro_view_details>
+    	<reference name="root">
+      		<action method="setTemplate">
+				<template helper="cmspro/data/chooseColumnLayout"/>
+			</action>
+        </reference>
+    	<reference name="left" >
+            <block type="cmspro/search" name="cmspro.search.left" template="cmspro/search/search.phtml" before="cmspro.news.latest.left" />
+			<block type="cmspro/view_related" name="cmspro.view.related.left" after="cmspro.categories.accordin_left"  template="cmspro/view/related.phtml"/>
+			<block type="cmspro/view_relatednews" name="cmspro.news.relatednews.left" after="cmspro.categories.accordin_left" >
+				<action method="setTemplate">
+					<template helper="cmspro/data/displayRelatedNewsLeft"/>
+				</action>
+			</block>
+			<remove name="tags_popular"/>
+    		<block type="cmspro/populartags" name="news_tags_popular" template="cmspro/populartags.phtml"/>
+        </reference>
+    	<reference name="content">
+            <block type="cmspro/view" name="cmspro.view" template="cmspro/view.phtml" >
+            	<block type="core/template" name="cmspro.addthis" as="cmspro.addthis" template="cmspro/addthis.phtml"/>
+				<block type="catalog/product_view_additional" name="cmspro.news.info.additional" as="cmspro_news_additional_data" >
+					<block type="cmspro/comment_list" name="product.info.product_additional_data" as="product_additional_data" template="cmspro/comment/list.phtml" before="+">
+						<block type="cmspro/comment" name="cmsprocommentup" as="comment_form" template="cmspro/comment/comment.phtml" /> 
+					</block>
+					<block type="cmspro/view_tag" name="cmspro.news.info.tag" before="-" template="cmspro/view/tag.phtml"/>
+				</block>	
+            </block>
+        </reference>		
+		<reference name="right">
+			  <block type="cmspro/search" name="cmspro.search.right" template="cmspro/search/search.phtml" before="cmspro.news.latest.right" />
+			<block type="cmspro/view_related" name="cmspro.view.related.right" before="-" template="cmspro/view/related.phtml"/>
+			<block type="cmspro/view_relatednews" name="cmspro.news.relatednews.right" after="cmspro.categories.accordin_right" >
+				<action method="setTemplate">
+					<template helper="cmspro/data/displayRelatedNewsRight"/>
+				</action>
+			</block>
+		</reference>
+    </cmspro_view_details>
+    
+    <cmspro_category_view>
+    	<reference name="root">
+      		<action method="setTemplate">
+				<template helper="cmspro/data/chooseColumnLayout"/>
+			</action>
+        </reference>
+    	<reference name="left" >
+            <block type="cmspro/search" name="cmspro.search.left" template="cmspro/search/search.phtml" before="cmspro.news.latest.left" />
+            <remove name="tags_popular"/>
+    		<block type="cmspro/populartags" name="news_tags_popular" template="cmspro/populartags.phtml"/>
+        </reference>
+    	<reference name="content">
+            <block type="cmspro/list" name="cmspro.list" template="cmspro/list/list.phtml" />
+        </reference>
+		<reference name="right" >
+            <block type="cmspro/search" name="cmspro.search.right" template="cmspro/search/search.phtml" before="cmspro.news.latest.right"/>
+        </reference>
+    </cmspro_category_view>
+    
+    <!--
+    all tag and tag list
+    -->
+    <cmspro_tag_index translate="label">
+    	<reference name="root">
+    		<!--<action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+      		-->
+      		<remove name="left"></remove>
+      		<action method="setTemplate">
+				<template helper="cmspro/data/chooseColumnLayout"/>
+			</action>
+        </reference>
+        <label>Tags List (All Available)</label>
+        <reference name="content">
+            <block type="cmspro/tag_all" name="news_tags_all" template="cmspro/cloud.phtml"/>
+        </reference>
+    </cmspro_tag_index>
+    <cmspro_tag_list translate="label">
+    	<reference name="root">
+      		<action method="setTemplate">
+				<template helper="cmspro/data/chooseColumnLayout"/>
+			</action>
+        </reference>
+        <label>Tagged News List</label>
+        <reference name="left">
+        	<remove name="tags_popular"/>
+    		<block type="cmspro/populartags" name="news_tags_popular" template="cmspro/populartags.phtml"/>
+        </reference>
+        <reference name="content">
+            <block type="cmspro/tag_list" name="cmspro_tag_news" template="cmspro/search/result.phtml">
+            </block>
+        </reference>
+    </cmspro_tag_list>
+	
+	 <catalog_product_view translate="label">
+        <label>Catalog Product View (Any)</label>
+		 <!-- <reference name="root">
+           <action method="setTemplate"><template>page/3columns.phtml</template></action>
+        </reference>  -->		
+			<reference name="right" >
+			 <block type="cmspro/search" name="cmspro.search.right" template="cmspro/search/search.phtml" before="cmspro.relatednews.right" />
+            <block type="cmspro/relatednews" name="cmspro.relatednews.right" template="cmspro/block/relatednews.phtml" before="cmspro.news.latest.right" />
+			 <block type="cmspro/view_related" name="cmspro.view.related.right" template="cmspro/view/related.phtml"/>
+        </reference>
+		<reference name="left" >
+             <block type="cmspro/search" name="cmspro.search.left" template="cmspro/search/search.phtml" before="cmspro.news.latest.left" />
+            <block type="cmspro/relatednews" name="cmspro.relatednews.left" template="cmspro/block/relatednews.phtml" before="cmspro.news.latest.left" />
+			 <block type="cmspro/view_related" name="cmspro.view.related.left" template="cmspro/view/related.phtml"/>
+        </reference>
+	 </catalog_product_view>
+	 
+	 <cmspro_rss_index>
+	 	<label>RSS Feeds List</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+        <reference name="content">
+              <block type="cmspro/rss_list" name="cmspro_rss.list" template="cmspro/rss/list.phtml"/>
+        </reference>
+    </cmspro_rss_index>
+    
+    <cmspro_rss_category>
+        <block type="cmspro/rss_categoryview" output="toHtml" name="cmspro.news.rss"/>
+    </cmspro_rss_category>
+    
+    <cmspro_sitemap translate="label">
+        <label>Catalog Seo Sitemap (Common)</label>
+        <remove name="right"/>
+        <remove name="left"/>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="page/template_container" name="cmspro.seo.sitemap.container" template="cmspro/sitemap/container.phtml">
+                <block type="page/template_links" name="cmspro.seo.sitemap.links" as="links" template="page/template/links.phtml"/>
+                <block type="page/html_pager" name="cmspro.seo.sitemap.pager.top" as="pager_top" template="page/html/pager.phtml"/>
+                <block type="page/html_pager" name="cmspro.seo.sitemap.pager.bottom" as="pager_bottom" template="page/html/pager.phtml"/>
+            </block>
+        </reference>
+    </cmspro_sitemap>
+    <cmspro_sitemap_category translate="label">
+        <label>Category News sitemap (Category List)</label>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="cmspro"><title>Category News Site Map</title></action>
+        </reference>
+        <update handle="cmspro_sitemap" />
+        <reference name="cmspro.seo.sitemap.container">
+            <action method="setTitle" translate="title" module="cmspro"><title>Categories News Sitemap</title></action>
+            <block type="cmspro/sitemap_category" name="cmspro.seo.sitemap.sitemap" as="sitemap" after="pager_top" template="cmspro/sitemap/sitemap.phtml">
+                <action method="bindPager"><pager>cmspro.seo.sitemap.pager.top</pager></action>
+                <action method="bindPager"><pager>cmspro.seo.sitemap.pager.bottom</pager></action>
+                <action method="setItemsTitle" translate="title" module="cmspro"><title>categories news</title></action>
+            </block>
+        </reference>
+        <reference name="cmspro.seo.sitemap.links">
+            <action method="addLink" translate="label title" module="cmspro"><label>News Sitemap</label><url helper="cmspro/category/getSitemapNewsUrl"/><title>News Sitemap</title></action>
+        </reference>
+    </cmspro_sitemap_category>
+    
+   <cmspro_sitemap_news translate="label">
+        <label>News Sitemap (News List)</label>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="cmspro"><title>News Site Map</title></action>
+        </reference>
+        <update handle="cmspro_sitemap" />
+        <reference name="cmspro.seo.sitemap.container">
+            <action method="setTitle" translate="title" module="cmspro"><title>News</title></action>
+            <block type="cmspro/sitemap_news" name="cmspro.seo.sitemap.sitemap" as="sitemap" after="pager_top" template="cmspro/sitemap/sitemap.phtml">
+                <action method="bindPager"><pager>cmspro.seo.sitemap.pager.top</pager></action>
+                <action method="bindPager"><pager>cmspro.seo.sitemap.pager.bottom</pager></action>
+                <action method="setItemsTitle" translate="title" module="cmspro"><title>news</title></action>
+            </block>
+        </reference>
+        <reference name="cmspro.seo.sitemap.links">
+            <action method="addLink" translate="label title" module="cmspro"><label>Categories News</label><url helper="cmspro/category/getSitemapCategoryUrl"/><title>Categories News Sitemap</title></action>
+        </reference>
+    </cmspro_sitemap_news>
+    
+    <cmspro_index_preview>
+    	<reference name="root">
+      		<action method="setTemplate">
+				<template helper="cmspro/data/chooseColumnLayout"/>
+			</action>
+        </reference>
+    	<reference name="left" >
+            <block type="cmspro/search" name="cmspro.search.left" template="cmspro/search/search.phtml" before="cmspro.news.latest.left" />
+			<block type="cmspro/preview_related" name="cmspro.preview.related.left" after="cmspro.categories.accordin_left"  template="cmspro/view/related.phtml"/>
+			<block type="cmspro/preview_relatednews" name="cmspro.preview.relatednews.left" after="cmspro.categories.accordin_left" >
+				<action method="setTemplate">
+					<template helper="cmspro/data/displayRelatedNewsLeft"/>
+				</action>
+			</block>
+			<remove name="tags_popular"/>
+    		<block type="cmspro/populartags" name="news_tags_popular" template="cmspro/populartags.phtml"/>
+        </reference>
+    	<reference name="content">
+            <block type="cmspro/preview_view" name="cmspro.preview" template="cmspro/view.phtml" >
+            	 <block type="core/template" name="cmspro.addthis" as="cmspro.addthis" template="cmspro/addthis.phtml"/>
+				 <block type="catalog/product_view_additional" name="cmspro.preview.news.info.additional" as="cmspro_news_additional_data" >
+					<!--  <block type="cmspro/preview_comment_list" name="preview_product.info.product_additional_data" as="product_additional_data" template="cmspro/comment/list.phtml" before="+">
+						<block type="cmspro/preview_comment" name="preview_cmsprocommentup" as="comment_form" template="cmspro/comment/comment.phtml" /> 
+					</block>
+					<block type="cmspro/preview_tag" name="cmspro.preview.news.info.tag" before="-" template="cmspro/view/tag.phtml"/>-->
+				</block>	
+            </block>
+        </reference>		
+		<reference name="right">
+			<block type="cmspro/search" name="cmspro.search.right" template="cmspro/search/search.phtml" before="cmspro.news.latest.right" />
+			<block type="cmspro/preview_related" name="cmspro.preview.related.right" before="-" template="cmspro/view/related.phtml"/>
+			<block type="cmspro/preview_relatednews" name="cmspro.prevew.relatednews.right" after="cmspro.categories.accordin_right" >
+				<action method="setTemplate">
+					<template helper="cmspro/data/displayRelatedNewsRight"/>
+				</action>
+			</block>
+		</reference>
+    </cmspro_index_preview>
+    
+</layout> 

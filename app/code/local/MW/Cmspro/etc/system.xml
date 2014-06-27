@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mageworld translate="label">
+            <label>Mage World</label>
+            <sort_order>30</sort_order>
+        </mageworld>
+    </tabs>
+    <sections>
+        <mw_cmspro translate="label" module="cmspro">
+            <label>CMS Pro</label>
+            <tab>mageworld</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            	<info translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<category_suffix translate="label">
+                            <label>Category Suffix</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Default:.html</comment>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_suffix>						
+						<news_suffix translate="label">
+                            <label>News Suffix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default:.html</comment>
+                        </news_suffix>
+                        <!--  <photo_background_color>
+                        	<label>Photo Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>28</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </photo_background_color>-->
+                        <photo_background_color>
+                        	<label>Photo Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>cmspro/adminhtml_renderer_color</frontend_model>
+                            <sort_order>28</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Choose color (Scroll over vertical bar, then move circle to desired color in left hand box, save setting with ball in lower right corner)</comment>
+                        </photo_background_color>
+						<news_thumbnail_size translate="label">
+                            <label>News Thumb Size (w-h)px</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>29</sort_order>
+                            <comment>Default:128-128</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </news_thumbnail_size>
+                        <latest_news_thumbnail_size translate="label">
+                        	<label>Latest News Thumb Size (w-h)px</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <comment>Default:100-100</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </latest_news_thumbnail_size>
+						<backend_thumbnail_size translate="label">
+                            <label>Admin Thumb Size (w-h)px</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>31</sort_order>
+                            <comment>Default: 60-60</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </backend_thumbnail_size>
+                        
+						<news_per_page_allowed translate="label">
+                            <label>News Per Page Allowed Values</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>(example 5,10,15,...)</comment>
+                        </news_per_page_allowed>
+                        
+						<news_per_page_default_value translate="label">
+                            <label>News Per Page Default Value</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>33</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </news_per_page_default_value>
+                        
+						<number_newer_news translate="label">
+                            <label>Number of 'previous' news articles</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default: 5</comment>
+                        </number_newer_news>
+                        
+                        <number_older_news translate="label">
+                            <label>Number of 'next' news articles</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default: 5</comment>
+                        </number_older_news>					
+                    </fields>
+                </info>
+               
+                <left_menu_category translate="label" module="cmspro">
+                    <label>Category Menu Settings</label>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<enable translate="label">
+                            <label>Enable Top Menu</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>cmspro/status</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default No. Select Yes only if no other extension overriding top menu to avoid conflict.</comment>
+                        </enable>
+                        <show_root_category translate="label">
+                            <label>Show Root Category Top Menu</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>cmspro/status</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_root_category>
+                        <side_menu_position translate="label">
+                            <label>Show Menu on Sidebar</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>MW_Cmspro_Model_Source_Newsbox</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </side_menu_position>  
+						<side_menu_style translate="label">
+                            <label>Sidebar Menu Style</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>MW_Cmspro_Model_Source_Fieldsright</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <show_in_store>1</show_in_store>
+                        </side_menu_style>
+                        <collapse translate="label">
+                            <label>Auto Collapse / Expand</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </collapse>  
+						
+						<deeplevel translate="label">
+                            <label>Maximum # of category levels</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>MW_Cmspro_Model_Source_Fieldsdeeplevel</source_model>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <show_in_store>1</show_in_store>
+                        </deeplevel>
+                    </fields>
+                </left_menu_category>
+                <news translate="label" module="cmspro">
+                    <label>News Settings</label>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<usingcomment translate="label">
+                            <label>Enable news comment</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_type>select</frontend_type>
+                            <source_model>cmspro/active</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </usingcomment>                    	
+						<display_latest_news translate="label">
+                            <label>Enable Latest News Block</label>                         
+                            <frontend_type>select</frontend_type>
+                            <source_model>MW_Cmspro_Model_Source_Newsbox</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <show_in_store>1</show_in_store>
+                        </display_latest_news>
+                        <number_news_latest translate="label">
+                            <label>Number of Latest News</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </number_news_latest>
+						<display_search_news translate="label">
+                            <label>Enable News Searching Box</label>                         
+                            <frontend_type>select</frontend_type>
+                            <source_model>MW_Cmspro_Model_Source_Newsbox</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <show_in_store>1</show_in_store>
+							 <comment>Searching box allows inputing data to search news.</comment>
+                        </display_search_news>
+                        <root_cmspro_name translate="label">
+                            <label>Menu Tab title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>May take a few minutes to refresh</comment>
+                        </root_cmspro_name>
+						<publickey_capcha>
+							<label>Public key of reCAPCHA</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</publickey_capcha>
+						<privatekey_capcha>
+							<label>Private key of reCAPCHA</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</privatekey_capcha>
+						<title_index translate="label">
+                            <label>Title of Index page (browser tab)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>38</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title_index>
+                        <meta_description_index translate="label">
+                            <label>Meta Description of index page</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_description_index>
+                        <meta_keyword_index translate="label">
+                            <label>Meta Keyword of index page</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_keyword_index>
+                    </fields>
+                </news>
+				
+				<product translate="label" module="cmspro">
+                    <label>Related Product Settings</label>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>				
+						<display_related_product translate="label">
+                            <label>Enable Related Products Block</label>                         
+                            <frontend_type>select</frontend_type>
+                            <source_model>MW_Cmspro_Model_Source_Newsbox</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <show_in_store>1</show_in_store>
+							 <comment>When viewing a specific news,this block will show news's related product.</comment>
+                        </display_related_product>
+						<number_related_product translate="label">
+                            <label>Number of Related Products</label>
+                            <frontend_type>text</frontend_type>                           
+                            <source_model>cmspro/status</source_model>
+                            <sort_order>32</sort_order>
+                            <show_in_default>5</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </number_related_product>					
+                    </fields>
+                </product>
+                <relatednews translate="label" module="cmspro">
+                    <label>Related News Settings</label>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>				
+						<display_related_news translate="label">
+                            <label>Enable Related News Block</label>                         
+                            <frontend_type>select</frontend_type>
+                            <source_model>MW_Cmspro_Model_Source_Newsbox</source_model>
+                            <sort_order>54</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <show_in_store>1</show_in_store>
+							 <comment>When viewing a specific product,this block will show product's related news.</comment>
+                        </display_related_news>
+						<number_related_news translate="label">
+                            <label>Number of Related News</label>
+                            <frontend_type>text</frontend_type>                           
+                            <source_model>cmspro/status</source_model>
+                            <sort_order>65</sort_order>
+                            <show_in_default>5</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </number_related_news>
+                    </fields>
+                </relatednews>
+                <design translate="label" module="cmspro">
+                	<label>Design Setting</label>
+                	<sort_order>6</sort_order>
+                	<show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<layout>
+                    		<label>Layout</label>
+                    		<frontend_type>select</frontend_type>
+                    		<source_model>Mage_Page_Model_Source_Layout</source_model>
+                    		<sort_order>61</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <show_in_store>1</show_in_store>
+                    	</layout>
+                    	<!--<template>
+                    		<label>Template</label>
+                    		<frontend_type>select</frontend_type>
+                    		<source_model>MW_Cmspro_Model_Source_Design</source_model>
+                    		<sort_order>62</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <show_in_store>1</show_in_store>
+                    	</template>
+                    --></fields>
+                </design>
+                <author_information translate="label">
+                    <label>Author Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>12</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <comment>The Cms Pro is developed and supported by &lt;a href="http://www.mage-world.com/"&gt;www.Mage-World.com&lt;/a&gt;.
+						If you need any support or have any question please contact us at &lt;a href="mailto:support@mage-world.com"&gt;support@mage-world.com.&lt;/a&gt;
+                    </comment>
+                </author_information>
+            </groups>
+        </mw_cmspro>
+    </sections>
+</config>

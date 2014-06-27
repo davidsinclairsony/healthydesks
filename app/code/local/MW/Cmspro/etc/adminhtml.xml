@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+			<cmspro module="cmspro">
+				<title>Cms Pro</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<addnews module="cmspro" translate="title">
+						<title>Add News</title>
+						<sort_order>0</sort_order>
+						<action>cmspro_admin/adminhtml_news/new</action>
+					</addnews>
+					<news module="cmspro" translate="title">
+						<title>Manage News</title>
+						<sort_order>5</sort_order>
+						<action>cmspro_admin/adminhtml_news/index</action>
+					</news>
+					<comment module="cmspro" translate="title">
+						<title>Manage Comments</title>
+						<sort_order>10</sort_order>
+						<action>cmspro_admin/adminhtml_comment/index</action>
+					</comment>
+					<tag module="cmspro" translate="title">
+						<title>Manage Tags</title>
+						<sort_order>15</sort_order>
+						<action>cmspro_admin/adminhtml_tag</action>
+					</tag>
+					<category module="cmspro" translate="title">
+						<title>Manage Categories</title>
+						<sort_order>20</sort_order>
+						<action>cmspro_admin/adminhtml_category</action>
+					</category>
+					<configurations module="cmspro" translate="title">
+						<title>Configurations</title>
+						<sort_order>30</sort_order>
+						<action>adminhtml/system_config/edit/section/mw_cmspro</action>
+					</configurations>
+				</children>
+			</cmspro>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<cmspro module="cmspro">
+							<title>Cms Pro</title>
+							<sort_order>71</sort_order>               
+							<children>
+								<addnews module="cmspro" translate="title">
+									<title>Add News</title>
+									<sort_order>0</sort_order>
+								</addnews>
+								<news module="cmspro" translate="title">
+									<title>Manage News</title>
+									<sort_order>5</sort_order>
+								</news>
+								<comment module="cmspro" translate="title">
+									<title>Manage Comments</title>
+									<sort_order>10</sort_order>
+								</comment>
+								<tag module="cmspro" translate="title">
+									<title>Manage Tags</title>
+									<sort_order>15</sort_order>
+								</tag>
+								<category module="cmspro" translate="title">
+									<title>Manage Categories</title>
+									<sort_order>20</sort_order>
+								</category>
+								<configurations module="cmspro" translate="title">
+									<title>Configurations</title>
+									<sort_order>30</sort_order>
+								</configurations>
+							</children>
+						</cmspro>
+						<system>
+			                <children>
+			                    <config>
+			                        <children>
+			                            <mw_cmspro translate="title" module="cmspro">
+			                                <title>Cms Pro</title>
+			                            </mw_cmspro>
+			                        </children>
+			                    </config>
+			                </children>
+			            </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<cmspro>
+					<file>cmspro.xml</file>
+				</cmspro>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<MW_Cmspro>
+					<files>
+						<default>MW_Cmspro.csv</default>
+					</files>
+				</MW_Cmspro>
+			</modules>
+		</translate>
+</config>

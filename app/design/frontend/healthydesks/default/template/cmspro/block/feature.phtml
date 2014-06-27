@@ -1,0 +1,54 @@
+
+<?php
+$features = $this->getFeaturesNews();
+if($features){
+?>
+	<div class="cmspro_features_news">
+	<div class="cmspro_features_border">		
+		<div class="cp_features_first">
+			<div class="cp_features_first_img"><img src="<?php echo $this->helper('cmspro/image')->init($features[0]['images'])->resize(455, 300) ?>" alt="<?php echo $features[0]['title']; ?>" /></div>
+			<div class="cp_features_first_title">
+				<h3>
+					<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($features[0]['url_rewrite_id'])->getRequestPath();?>">
+						<?php echo $features[0]['title']; ?>
+					</a>
+				</h3>
+				<div><?php echo substr($features[0]['summary'],0,180)."..."; ?> <a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($features[0]['url_rewrite_id'])->getRequestPath();?>"> read more</a> </div>
+			</div>
+		</div>
+		<div class="cmspro_clear">&nbsp;</div>
+		<?php 
+		if(sizeof($features)>3){ 
+			$newsThumbnailSize = array('width'=>140,'height'=>120);
+		?>
+		<div class="cp_features_other">
+			<div class="cp_features_other_1" style="width:<?php echo $newsThumbnailSize['width']+'4'.'px'; ?>">
+				<p>
+				<img src="<?php echo $this->helper('cmspro/image')->init($features[1]['images'])->resize($newsThumbnailSize['width'], $newsThumbnailSize['height']) ?>" alt="<?php echo $features[1]['title']; ?>"/>
+				</p>
+				<span><?php echo $features[1]['created_time'];?></span>
+				<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($features[1]['url_rewrite_id'])->getRequestPath(); ?>"><?php echo $features[1]['title'] ?></a>
+			</div>
+
+			<div class="cp_features_other_2" style="width:<?php echo $newsThumbnailSize['width']+'4'.'px'; ?>">
+				<p>
+				<img src="<?php echo $this->helper('cmspro/image')->init($features[2]['images'])->resize($newsThumbnailSize['width'], $newsThumbnailSize['height']) ?>" alt="<?php echo $features[2]['title']; ?>"  />
+				</p>
+				<span><?php echo $features[2]['created_time'];?></span>
+				<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($features[2]['url_rewrite_id'])->getRequestPath(); ?>"><?php echo $features[2]['title'] ?></a>
+			</div>
+			<div class="cp_features_other_3" style="width:<?php echo $newsThumbnailSize['width']+'4'.'px'; ?>">
+				<p>
+				<img src="<?php echo $this->helper('cmspro/image')->init($features[3]['images'])->resize($newsThumbnailSize['width'], $newsThumbnailSize['height']) ?>" alt="<?php echo $features[3]['title']; ?>"/>
+				</p>
+				<span><?php echo $features[3]['created_time'];?></span>
+				<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($features[3]['url_rewrite_id'])->getRequestPath(); ?>"><?php echo $features[3]['title'] ?></a>
+			</div>
+		</div>
+		<div class="cmspro_clear">&nbsp;</div>
+		<?php } ?>
+	</div>
+	</div>
+<?php }else{ /*?>
+	<div class="cmspro_error"><?php echo Mage::helper('cmspro')->__('Not found any features news'); ?></div>
+<?php */} ?>

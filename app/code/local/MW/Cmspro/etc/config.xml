@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MW_Cmspro>
+            <version>3.0.1</version>
+        </MW_Cmspro>
+    </modules>
+    <frontend>
+        <routers>
+            <cmspro>
+                <use>standard</use>
+                <args>
+                    <module>MW_Cmspro</module>
+                    <frontName>cmspro</frontName>
+                </args>
+            </cmspro>
+        </routers>
+        <layout>
+            <updates>
+                <cmspro>
+                    <file>cmspro.xml</file>
+                </cmspro>
+            </updates>
+        </layout>
+		   <translate>
+			<modules>
+				<MW_Cmspro>
+					<files>
+						<default>MW_Cmspro.csv</default>
+					</files>
+				</MW_Cmspro>
+			</modules>
+		</translate>
+    </frontend>
+    <admin>
+        <routers>
+			<cmspro_admin>
+				<use>admin</use>
+				<args>
+					<module>MW_Cmspro</module>
+					<frontName>cmspro_admin</frontName>
+				</args>
+			</cmspro_admin>
+        </routers>
+    </admin>
+    <adminhtml>
+  		<menu>
+  			<cmspro module="cmspro">
+  				<title>Cms Pro</title>
+  				<sort_order>71</sort_order>               
+  				<children>
+  					<addnews module="cmspro" translate="title">
+  						<title>Add News</title>
+  						<sort_order>0</sort_order>
+  						<action>cmspro_admin/adminhtml_news/new</action>
+  					</addnews>
+  					<news module="cmspro" translate="title">
+  						<title>Manage News</title>
+  						<sort_order>5</sort_order>
+  						<action>cmspro_admin/adminhtml_news/index</action>
+  					</news>
+  					<comment module="cmspro" translate="title">
+  						<title>Manage Comments</title>
+  						<sort_order>10</sort_order>
+  						<action>cmspro_admin/adminhtml_comment/index</action>
+  					</comment>
+  					<tag module="cmspro" translate="title">
+						<title>Manage Tags</title>
+						<sort_order>15</sort_order>
+						<action>cmspro_admin/adminhtml_tag</action>
+					</tag>
+  					<category module="cmspro" translate="title">
+  						<title>Manage Categories</title>
+  						<sort_order>20</sort_order>
+  						<action>cmspro_admin/adminhtml_category</action>
+  					</category>
+  					<configurations module="cmspro" translate="title">
+  						<title>Configurations</title>
+  						<sort_order>30</sort_order>
+  						<action>adminhtml/system_config/edit/section/mw_cmspro</action>
+  					</configurations>
+  				</children>
+  			</cmspro>
+  		</menu>
+  		<acl>
+  			<resources>
+  				<all>
+  					<title>Allow Everything</title>
+  				</all>
+  				<admin>
+  					<children>
+  						<cmspro module="cmspro">
+  							<title>Cms Pro</title>
+  							<sort_order>71</sort_order>               
+  							<children>
+  								<addnews module="cmspro" translate="title">
+  									<title>Add News</title>
+  									<sort_order>0</sort_order>
+  								</addnews>
+  								<news module="cmspro" translate="title">
+  									<title>Manage News</title>
+  									<sort_order>5</sort_order>
+  								</news>
+  								<comment module="cmspro" translate="title">
+  									<title>Manage Comment</title>
+  									<sort_order>10</sort_order>
+  								</comment>
+  								<tag module="cmspro" translate="title">
+									<title>Manage Tags</title>
+									<sort_order>15</sort_order>
+								</tag>
+  								<category module="cmspro" translate="title">
+  									<title>Manage Categories</title>
+  									<sort_order>20</sort_order>
+  								</category>
+  								<configurations module="cmspro" translate="title">
+		  							<title>Configurations</title>
+					  				<sort_order>30</sort_order>
+			  					</configurations>
+  							</children>
+  						</cmspro>
+  						<system>
+		                  <children>
+		                      <config>
+		                          <children>
+		                              <mw_cmspro translate="title" module="cmspro">
+		                                  <title>Cms Pro</title>
+		                              </mw_cmspro>
+		                          </children>
+		                      </config>
+		                  </children>
+		              </system>
+  					</children>
+  				</admin>
+  			</resources>
+  		</acl>
+  		<layout>
+  			<updates>
+  				<cmspro>
+  					<file>cmspro.xml</file>
+  				</cmspro>
+  			</updates>
+  		</layout>
+  		<translate>
+  			<modules>
+  				<MW_Cmspro>
+  					<files>
+  						<default>MW_Cmspro.csv</default>
+  					</files>
+  				</MW_Cmspro>
+  			</modules>
+  		</translate>
+    </adminhtml>  
+    <global>
+    	<!-- <rewrite>
+			<mw_cmspro_process>
+				<from><![CDATA[#^/admin/process/#]]></from>
+				<to>/cmspro_admin/adminhtml_process/</to>
+			</mw_cmspro_process>			
+		</rewrite> -->
+        <models>
+            <cmspro>
+                <class>MW_Cmspro_Model</class>
+                <resourceModel>cmspro_mysql4</resourceModel>
+            </cmspro>
+            <cmspro_mysql4>
+                <class>MW_Cmspro_Model_Mysql4</class>
+                <entities>
+                    <category>
+                    	<table>cmspro_category</table>
+                    </category>
+                    <category_store>
+                    	<table>cmspro_category_store</table>
+                    </category_store>
+                    <news>
+                    	<table>cmspro_news</table>
+                    </news>
+                    <news_store>
+                    	<table>cmspro_news_store</table>
+                    </news_store>
+                    <news_category>
+                    	<table>cmspro_news_category</table>
+                    </news_category>
+					<comment>
+						<table>cmspro_comment</table>
+					</comment>
+					<news_rating>
+						<table>cmspro_news_rating</table>
+					</news_rating>
+					<relation>
+						<table>cmspro_news_product</table>
+					</relation>
+					<news_news>
+						<table>cmspro_news_news</table>
+					</news_news>
+					<tag>
+						<table>cmspro_tag</table>
+					</tag>
+					<news_tag>
+						<table>cmspro_news_tag</table>
+					</news_tag>
+					<news_design>
+						<table>cmspro_news_design</table>
+					</news_design>
+					<news_backup>
+                    	<table>cmspro_news_backup</table>
+                    </news_backup>
+                    <news_store_backup>
+                    	<table>cmspro_news_store_backup</table>
+                    </news_store_backup>
+                    <news_category_backup>
+                    	<table>cmspro_news_category_backup</table>
+                    </news_category_backup>
+                </entities>
+            </cmspro_mysql4>
+            
+            <sitemap>
+           		<rewrite>
+           			<sitemap>MW_Cmspro_Model_Sitemap</sitemap>
+           		</rewrite>
+           </sitemap>
+           
+        </models>
+        <resources>
+            <cmspro_setup>
+                <setup>
+                    <module>MW_Cmspro</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </cmspro_setup>
+            <cmspro_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </cmspro_write>
+            <cmspro_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </cmspro_read>
+        </resources>
+        <blocks>
+            <cmspro>
+                <class>MW_Cmspro_Block</class>
+            </cmspro>
+
+            <review>
+                <rewrite>
+                    <product_view_list>MW_Cmspro_Block_Comment_List</product_view_list>
+                </rewrite>
+            </review>
+            <rss>
+                <rewrite>
+                    <list>MW_Cmspro_Block_Rss_Listnew</list>
+                </rewrite>
+            </rss>
+
+            <!--<page>
+                <rewrite>
+                    <html_head>MW_Cmspro_Block_Html_Head</html_head>
+                </rewrite>
+            </page>-->
+
+            <adminhtml>
+                <rewrite>
+                    <page_head>MW_Cmspro_Block_Page_Html_Head</page_head>
+                </rewrite>
+            </adminhtml>
+            <!--
+			<page>
+				<rewrite>
+					<html_pager>MW_Cmspro_Block_Comment_Html_Pager</html_pager>
+				</rewrite>
+			</page> -->
+
+            <!-- 	<catalog>
+				<rewrite>
+					<product_list_related>MW_Cmspro_Block_Product_List_Related</product_list_related>
+				</rewrite>
+			</catalog> -->
+
+        </blocks>
+        <helpers>
+            <cmspro>
+                <class>MW_Cmspro_Helper</class>
+            </cmspro>
+        </helpers>
+		<events>
+			<controller_front_init_before>
+	            	<observers>
+	                    <cmspro>
+	                        <type>singleton</type>
+	                        <class>cmspro/observer</class>
+	                        <method>checkLicense</method>
+	                    </cmspro>
+	                </observers>
+			</controller_front_init_before>
+			<controller_action_layout_generate_blocks_after>
+				<observers>
+					<cmspro>
+						<type>singleton</type>
+						<class>cmspro/observer</class>
+						<method>syntaxHighlighter</method>
+					</cmspro>
+				</observers>
+			</controller_action_layout_generate_blocks_after>  
+			<cms_wysiwyg_config_prepare>
+                <observers>
+                    <cmspro>
+                        <type>singleton</type>
+                        <class>cmspro/observer</class>
+                        <method>preparePluginConfig</method>
+                    </cmspro>
+                </observers>
+            </cms_wysiwyg_config_prepare>  
+		</events>
+    </global>
+    <default>
+		<mw_cmspro>
+			<info>
+				<category_suffix>.html</category_suffix>
+				<news_suffix>.html</news_suffix>
+				<news_thumbnail_size>128-128</news_thumbnail_size>
+				<latest_news_thumbnail_size>100-100</latest_news_thumbnail_size>
+				<photo_background_color>ffffff</photo_background_color>
+				<clear_cache>Clear cache</clear_cache>
+				<backend_thumbnail_size>60-60</backend_thumbnail_size>
+				<news_per_page_allowed>5,10,15</news_per_page_allowed>
+				<news_per_page_default_value>5</news_per_page_default_value>
+				<number_newer_news>5</number_newer_news>
+				<number_older_news>5</number_older_news>
+			</info>
+			<left_menu_category>
+				<enable>2</enable>
+				<show_root_category>1</show_root_category>
+				<side_menu_position>1</side_menu_position>
+				<side_menu_style>1</side_menu_style>
+				<collapse>1</collapse>
+				<deeplevel>5</deeplevel>
+			</left_menu_category>
+			<news>
+				<show_latest_news>1</show_latest_news>
+				<number_news_latest>5</number_news_latest>
+				<root_cmspro_name>News</root_cmspro_name>
+				<root_cmspro_url>news</root_cmspro_url>
+			</news>
+			<product>	
+				<number_related_product >5</number_related_product>
+				<number_related_news >5</number_related_news>
+			</product>
+			<comment>
+				<per_page>5</per_page>
+			</comment>
+			<relatednews>
+				<display_related_news>0</display_related_news>
+				<number_related_news>3</number_related_news>
+			</relatednews>
+			<design>
+				<layout>three_columns</layout>
+			</design>
+		</mw_cmspro>
+	</default>
+</config>

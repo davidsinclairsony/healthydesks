@@ -1,0 +1,29 @@
+<?php  
+$news=$this->getnewscollection();
+if($news){
+	if(sizeof($news->getData())>0){
+?>
+
+	<div class="mw-block-sub">
+		<div class="block block-subscribe">
+			<div class="block-title">
+				<strong><span><?php echo Mage::helper('cmspro')->__('Related News') ?></span></strong>
+			</div>
+		<?php 
+			
+			$newsThumbnailSize = $this->getLatestNewsThumbnailSize();
+			foreach($news as $n){?>
+				<div class="block_news_item">
+					<div class="block_item_img"><a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($n->getUrlRewriteId())->getRequestPath(); ?>"><img src="<?php echo $this->helper('cmspro/image')->init($n->getImages())->resize($newsThumbnailSize['width'], $newsThumbnailSize['height']) ?>" alt="<?php echo ('')?>"/></a></div>
+					<div class="block_item_title">
+						<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($n->getUrlRewriteId())->getRequestPath(); ?>"><?php echo $n->getTitle(); ?></a>
+					</div>
+					<div class="cmspro_clear">&nbsp;</div>
+				</div>
+			<?php }
+		?>
+		</div>
+	</div>
+<?php }
+}
+?>

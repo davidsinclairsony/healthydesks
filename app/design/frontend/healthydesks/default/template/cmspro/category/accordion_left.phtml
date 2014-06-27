@@ -1,0 +1,181 @@
+<?php $deeplevel = Mage::getStoreConfig("mw_cmspro/left_menu_category/deeplevel"); ?> 
+<?php
+	$current_cat_id = (isset($_SESSION['cmspro_current_cat'])) ? $_SESSION['cmspro_current_cat'] : "";
+	if($current_cat_id){
+    	$root_path = Mage::getModel('cmspro/category')->load($current_cat_id)->getRootPath();
+    	$root_path = explode('/',$root_path);
+        if(sizeof($root_path)>2){$current_cat_id = $root_path[1];}else{$current_cat_id="";}
+	}
+?>	
+<?php if (Mage::getModel('cmspro/category')->getMainCategories()->count()>0) :?>
+<?php if(Mage::getStoreConfig('mw_cmspro/left_menu_category/collapse')== 1):?>
+<div id="mv_smartmenu_news">
+	<div class="mv_smartmenu">
+		<div class="mv_smartmenu_head">
+			<h4><a href="<?php echo Mage::getBaseUrl().$this->_getRootURL(); ?>"><?php echo $this->_getRootName(); ?></a></h4>
+		</div>
+		<div class="mv_smartmenu_content">
+			
+			<ul id="newsMenu_acc">			
+			<?php
+			$_main_categories = Mage::getModel('cmspro/category')->getMainCategories();
+			$i=0;
+			foreach ($_main_categories as $_main_category):
+			?>
+				<?php 
+				$_sub_categories = $_main_category->getChildren();
+				foreach ($_sub_categories as $_sub_category):
+				?>
+				<li <?php if($i==0):?>class="first"<?php endif;?>>
+
+					<a class="left main-cate" href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($_sub_category->getUrlRewriteId())->getRequestPath();?>">
+						<?php echo $_sub_category->getName()?>
+					</a>
+					<?php if(($_sub_category->hasChildren()) && ($deeplevel!=2)):?>
+					<span class="right head <?php echo ($_sub_category->getCategoryId()==$current_cat_id) ? "selected":""; ?>">
+						<a href="javascript:;"></a>
+					</span> 
+					<?php endif;?>
+					<ul style="margin-left: 10px; clear:both;<?php echo ($_sub_category->getCategoryId()==$current_cat_id) ? "display:block;":"";  ?>" >
+						<?php 
+						$_sub3s = $_sub_category->getChildren(); 
+						foreach ($_sub3s as $_sub3):
+						if($deeplevel==2): break;  endif;?>
+						<li>
+							<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($_sub3->getUrlRewriteId())->getRequestPath();?>">
+								<?php echo $_sub3->getName()?>
+							</a>
+							<ul style="margin-left: 10px; clear:both;" >
+								<?php 
+								$_sub4s = $_sub3->getChildren(); 
+								foreach ($_sub4s as $_sub4):
+								if($deeplevel==3): break;  endif;?>
+								<li>
+									<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($_sub4->getUrlRewriteId())->getRequestPath();?>">
+										<?php echo $_sub4->getName()?>
+									</a>
+									<ul style="margin-left: 10px; clear:both;" >
+										<?php 
+										$_sub5s = $_sub4->getChildren(); 
+										foreach ($_sub5s as $_sub5):
+										if($deeplevel==4): break;  endif;
+										?>
+										<li>
+											<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($_sub5->getUrlRewriteId())->getRequestPath();?>">
+												<?php echo $_sub5->getName()?>
+											</a>
+										</li>
+									   <?php endforeach;?>
+									</ul>
+								</li>
+							   <?php endforeach;?>
+							</ul>
+							
+						</li>
+					   <?php endforeach;?>
+					</ul>
+				</li>
+				<?php $i++; ?>
+				 <?php endforeach;?>
+					
+			<?php
+			//endif;
+			endforeach;
+			?> 
+		</ul>
+		</div>		
+	</div>
+	<div class="cmspro_clear "></div>
+	</div>
+	<?php else: ?>
+	
+	
+	
+<div id="mv_smartmenu_news">
+	<div class="mv_smartmenu">
+		<div class="mv_smartmenu_head">
+			<h4><a href="<?php echo Mage::getBaseUrl().$this->_getRootURL() ?>"><?php echo $this->_getRootName(); ?></a></h4>
+		</div>
+		<div class="mv_smartmenu_content">
+			<ul id="cate_collap">
+			<?php
+			$_main_categories=Mage::getModel('cmspro/category')->getMainCategories();
+			$i=0;
+			foreach ($_main_categories as $_main_category):	
+				
+				$_sub_categories = $_main_category->getChildren(); 
+				foreach ($_sub_categories as $_sub_category):
+				?>
+				<li <?php if($i==0):?>class="first"<?php endif;?> style="clear: both; float: left; width:100%;">
+					<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($_sub_category->getUrlRewriteId())->getRequestPath();?>">
+						<?php echo $_sub_category->getName()?>
+					</a>
+					<?php if(($_sub_category->hasChildren()) && ($deeplevel!=2)): ?>					
+						<a class="title_collap" href="#" onclick="return false;"><span class="right head<?php echo ($_sub_category->getCategoryId()==$current_cat_id) ? "selected":""; ?>">&nbsp;</span> </a>
+					<?php endif;?>
+					<ul style="margin-left: 10px; clear:both;<?php echo ($_sub_category->getCategoryId()==$current_cat_id) ? "display:block;":"";  ?>" >
+						<?php 
+						$_sub3s = $_sub_category->getChildren();
+						foreach ($_sub3s as $_sub3):
+						if($deeplevel==2): break;  endif;?>
+						<li>
+							<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($_sub3->getUrlRewriteId())->getRequestPath();?>"><?php echo $_sub3->getName()?></a>
+
+							<ul style="margin-left: 10px; clear:both;" >
+
+								<?php 
+								$_sub4s = $_sub3->getChildren();
+								foreach ($_sub4s as $_sub4):
+								if($deeplevel==3): break;  endif;?>
+								<li>
+									<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($_sub4->getUrlRewriteId())->getRequestPath();?>">
+										<?php echo $_sub4->getName()?>
+									</a>
+									<ul style="margin-left: 10px; clear:both;" >
+										<?php 
+										$_sub5s = $_sub4->getChildren(); 
+										foreach ($_sub5s as $_sub5):
+										if($deeplevel==4): break;  endif;
+										?>
+										<li>
+											<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($_sub5->getUrlRewriteId())->getRequestPath();?>">
+												<?php echo $_sub5->getName()?>
+											</a>
+										</li>
+										<?php endforeach;?>
+									</ul>
+								</li>
+								<?php endforeach;?>
+							</ul>
+							
+						</li>
+						<?php endforeach;?>
+					</ul>
+				</li>
+				<?php endforeach;?>
+			</li>
+			<?php
+			$i++;
+			//endif;
+			endforeach;
+			?> 
+		</ul>
+		</div>		
+	</div>
+	<div class="cmspro_clear "></div>
+	</div>
+	
+<?php //endif;?>	
+	
+	
+	
+	
+	
+		
+<?php endif; ?>		
+<?php endif;?>	
+				
+				
+
+
+        

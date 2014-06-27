@@ -1,0 +1,108 @@
+<?php if(Mage::getStoreConfig('mw_cmspro/news/usingcomment')==1): ?>
+<form action="<?php echo $this->getFormAction(); ?>" id="reviewForm" method="post" >
+		<hr/>
+		<?php if( $this->getRatings() && $this->getRatings()->getSize()): ?>
+                <h4><?php echo $this->__('How do you rate this product?') ?> <em class="required">*</em></h4>
+                <span id="input-message-box"></span>
+                <table class="data-table" id="product-review-table">
+                    <col />
+                    <col width="1" />
+                    <col width="1" />
+                    <col width="1" />
+                    <col width="1" />
+                    <col width="1" />
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th><span class="nobr"><?php echo $this->__('1 star') ?></span></th>
+                            <th><span class="nobr"><?php echo $this->__('2 stars') ?></span></th>
+                            <th><span class="nobr"><?php echo $this->__('3 stars') ?></span></th>
+                            <th><span class="nobr"><?php echo $this->__('4 stars') ?></span></th>
+                            <th><span class="nobr"><?php echo $this->__('5 stars') ?></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($this->getRatings() as $_rating): ?>
+                        <tr>
+                            <th><?php echo $this->escapeHtml($_rating->getRatingCode()) ?></th>
+                        <?php foreach ($_rating->getOptions() as $_option): ?>
+                            <td class="value"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio" /></td>
+                        <?php endforeach; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+                <script type="text/javascript">decorateTable('product-review-table')</script>
+            <?php endif; ?>
+		<hr/>
+    <h2><?php echo Mage::helper('cmspro')->__('Leave your comment') ;?></h2>
+    <div class="fieldset">
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field">
+                    <label for="fullname" class="required"><em>*</em><?php echo Mage::helper('cmspro')->__('Name') ?></label>
+                    <div class="input-box">
+						<input name="news_id" id="news_id" type="hidden" value="<?php echo $this->getNewsId()?>"/>
+                        <input name="fullname" id="fullname" title="<?php echo Mage::helper('cmspro')->__('Full Name') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email" class="required"><em>*</em><?php echo Mage::helper('cmspro')->__('Email') ?></label>
+                    <div class="input-box">
+                        <input name="email" id="email" title="<?php echo Mage::helper('cmspro')->__('Email') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="text" />
+                    </div>
+                </div>
+            </li>
+			
+			
+			<?php if($this->isDisplayPhone()):?>
+            <li>
+                <label for="telephone"><?php echo Mage::helper('cmspro')->__('Telephone') ?></label>
+                <div class="input-box">
+                    <input name="telephone" id="telephone" title="<?php echo Mage::helper('cmspro')->__('Telephone') ?>" value="" class="input-text" type="text" />
+                </div>
+            </li>
+			<?php endif;?>
+			
+	<style>
+		#input-box{
+			width: 400px;
+		}
+		
+		textarea{
+			width: inherit !important;
+		}
+	</style>
+            <li class="wide">
+                <label for="content" class="required"><em>*</em><?php echo Mage::helper('cmspro')->__('Comment') ?></label>
+                <div class="input-box" id="input-box">
+                    <textarea name="content" id="content" title="<?php echo Mage::helper('cmspro')->__('Comment') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+			<?php if($this->checkSession() == "" && $this->checkSession() == NULL): // current not logged in
+				require_once('recaptchalib.php'); ?>
+			<li>
+				<?php //var_dump(Mage::getStoreConfig("mw_cmspro/news/publickey_capcha"));die;
+				//6LdpS8QSAAAAAMu_e0gX2bQTaJeibmCKAJBLFi9R
+				$publickey=Mage::getStoreConfig("mw_cmspro/news/publickey_capcha");
+				if($publickey!=null&&$publickey!=''&&$publickey!=' '&&$publickey!='  '&&$publickey!='   ')
+				echo recaptcha_get_html($publickey);					
+						?>
+			</li> 
+			<?php endif;?>
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <p class="required"><?php echo Mage::helper('cmspro')->__('* Required Fields') ?></p>
+        <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+        <button type="submit" title="<?php echo Mage::helper('cmspro')->__('Submit') ?>" class="button"><span><span><?php echo Mage::helper('cmspro')->__('Submit') ?></span></span></button>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var reviewForm = new VarienForm('reviewForm', true);
+//]]>
+</script>
+<?php endif;?>
+

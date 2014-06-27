@@ -1,0 +1,89 @@
+<?php 
+	$news = $this->getNews(); 
+	if($news){
+		$newsThumbnailSize = $this->getNewsThumbnailSize();
+	?>
+	<div class="postWrapper">
+	     <div class="cmspro_postTitle">
+	        <div class="cmspro_postTitle_title"><?php echo $news->getTitle();?></div>
+	        <div class="cmspro_postTitle_published">
+	        	<div style="float:left;"><?php echo Mage::helper('cmspro')->__('Published at'); ?>
+	        	<?php $author ="";
+	        		  $author = $news->getAuthor();
+	        		  if($author != '') $author = Mage::helper('cmspro')->__(' | Posted by ').$author;?>
+	        	<?php echo Mage::helper('core')->formatDate($news->getCreatedTime(),Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM).$author;?></div>
+	        	<div style="float:right;"><?php echo $this->getChildHtml('cmspro.addthis');?></div>
+	        </div>
+	    </div>
+	    
+	    <?php if($news->getAllowShowImage()){?>
+	    <div class="cmspro_news_title">
+	    	<div class="cmspro_news_images"><img class="img-responsive" src="<?php echo $this->helper('cmspro/image')->init($news->getImages())->resize($newsThumbnailSize['width'], $newsThumbnailSize['height']) ?>" alt="<?php echo('') ?>" /></div>
+	    	<div class="cmspro_news_summary"><?php echo $news->getSummary();?></div>
+	    </div>
+	    <?php }?>
+	    <div class="cmspro_clear">&nbsp;</div>
+	    <div class="cmspro_news_content"><?php echo $news->getContent(); ?></div>
+	    <div class="cmspro_clear">&nbsp;</div>
+	    <div class="cmspro_news_navigation">
+	    	<table width="100%"><tr>
+		 	<td class="cmspro_new_previous" style="width:33%;">
+		 	<?php $previous=$this->_getOlderNews(true);
+		 	if($previous){ ?>
+		 		<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($previous->getUrlRewriteId())->getRequestPath() ?>">
+		 		<?php echo Mage::helper('cmspro')->__('Previous'); ?></a>
+		 	<?php }else{ echo "&nbsp;" ;} ?>
+		 	</td>
+		 	
+		 	<td class="cmspro_new_returncat" style="width:34%;">
+		 	<?php 
+		 	$category = $this->_getCategory();
+		 	if($category){ ?>
+		 		<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($category->getUrlRewriteId())->getRequestPath(); ?>">
+		 		<?php echo Mage::helper('cmspro')->__('Return to ').$category->getName(); ?></a>
+		 	<?php }else{ echo "&nbsp;" ;} ?>
+		 	</td>
+		 	<td class="cmspro_new_next" style="width:33%;">
+		 	<?php 
+		 	$next = $this->_getNewerNews(true);
+		 	if($next){ ?>
+		 		<a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($next->getUrlRewriteId())->getRequestPath() ?>">
+		 		<?php echo Mage::helper('cmspro')->__('Next'); ?></a>
+		 	<?php }else{ echo "&nbsp;" ;} ?>		 	
+		 	</td>
+		 	</tr></table>
+		 </div>
+		 <div class="cmspro_clear">&nbsp;</div>
+	    <div class="cmspro_news_relative">
+			<?php if($this->_getNewerNews() && (sizeof($this->_getNewerNews()->getData())>0)){ ?>
+				<h3><?php echo Mage::helper('cmspro')->__('Newer News'); ?></h3>
+				<?php
+				$newers = $this->_getNewerNews()->getData();
+				for($i=(sizeof($newers)-1);$i>=0;$i--){?>
+				<ul>
+					<li><a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($newers[$i]['url_rewrite_id'])->getRequestPath(); ?>"><?php echo $newers[$i]['title']; ?></a></li>
+				</ul>	
+				<?php	}?>
+			<?php } ?>
+			</div>
+			<div class="cmspro_clear">&nbsp;</div>
+			<div class="cmspro_clear">&nbsp;</div>
+			<div class="cmspro_clear">&nbsp;</div>
+			<div class="cmspro_news_relative">
+			<?php  if($this->_getOlderNews() && (sizeof($this->_getOlderNews()->getData())>0)){ ?>
+				<h3><?php echo Mage::helper('cmspro')->__('Older News'); ?></h3>
+				<?php
+				foreach($this->_getOlderNews() as $n){?>
+				<ul>
+					<li><a href="<?php echo Mage::getBaseUrl().Mage::getModel('core/url_rewrite')->load($n->getUrlRewriteId())->getRequestPath(); ?>"><?php echo $n->getTitle(); ?></a></li>
+				</ul>	
+				<?php	}?>
+			<?php } ?>
+			</div>
+			<hr/>
+	<?php //echo $this->getChildHtml('product_additional_data');?>
+	<?php echo $this->getChildHtml('cmspro_news_additional_data');?>
+	</div>
+	<?php }else{
+		echo "Not found news!";
+	}?>

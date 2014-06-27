@@ -1,0 +1,275 @@
+
+/*** ESSENTIAL STYLES ***/
+.mv_smartmenu_news .sf-menu,.mv_smartmenu_news .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.mv_smartmenu_news .sf-menu {
+	line-height:	1.0;
+}
+.mv_smartmenu_news .sf-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			200px; /* left offset of submenus need to match (see below) */
+	border: 1px solid #ddd;
+	border-top: 0px none;
+	background:url(../images/bg-ul.jpg) bottom repeat-x;
+	border-bottom:none;
+	padding-bottom:2px;
+}
+.mv_smartmenu_news .sf-menu ul li {
+	width:			100%;
+}
+.mv_smartmenu_news .sf-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+.mv_smartmenu_news .sf-menu li {
+	float:			left;
+	position:		relative;
+}
+.mv_smartmenu_news .sf-menu a {
+	display:		block;
+	position:		relative;
+}
+.mv_smartmenu_news .sf-menu li:hover ul,
+.mv_smartmenu_news .sf-menu li.sfHover ul {
+	left:			0;
+	top:			2.5em; /* match top ul list item height */
+	z-index:		99;
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			200px; /* match ul width */
+	top:			0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+
+/*** DEMO SKIN ***/
+.mv_smartmenu_news .sf-menu {
+	float:			left;
+	margin-bottom:	1em;
+	/*border: 1px solid #ddd;*/
+	background:url(../images/bg-ul.jpg) bottom repeat-x;
+	border:none;
+	padding-bottom:2px;
+	border-top: none 0px;
+	
+}
+
+.mv_smartmenu_news .sf-menu a {
+	border-left:	1px solid #ddd;
+	border-right:	1px solid #ddd;
+	border-bottom:none;
+	background:url(../images/bg-a.jpg) repeat-x;
+	padding: 		8px;
+	color:#333 !important;
+	text-decoration:none !important;
+}
+.mv_smartmenu_news .sf-menu a,.mv_smartmenu_news .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	color:			#333;/*border:none;*/border-bottom:none;border-top:none;
+}
+.mv_smartmenu_news .sf-menu li {
+	background:		#f2f2f2;
+	font-weight:bold;
+	z-index:100;
+}
+.mv_smartmenu_news .sf-menu li li {
+	background:		#f2f2f2;
+	font-weight:normal;
+}
+.mv_smartmenu_news .sf-menu li li li {
+	background:		#f2f2f2;
+	font-weight:normal;
+}
+.mv_smartmenu_news .sf-menu li:hover,.mv_smartmenu_news .sf-menu li.sfHover,
+.mv_smartmenu_news .sf-menu a:focus,.mv_smartmenu_news .sf-menu a:hover,.mv_smartmenu_news .sf-menu a:active {
+	/*background:		#fff url(../images/base_mini_head_bg.gif) repeat-x;*/
+	outline:		0;	
+	background:#f2f2f2 url(../images/bg-a.jpg) repeat-x;
+	color:#1E7EC8 !important;
+}
+.mv_smartmenu_news .sf-menu ul a{border-left:none;}
+
+
+.mv_smartmenu_news .sf-menu li:hover,.mv_smartmenu_news .sf-menu li.sfHover {
+	/*background:#f2f2f2 url(../images/icon.png) no-repeat 92% center ;*/
+	background:#f2f2f2 url(../images/bg-a.jpg) repeat-x;
+	}
+	
+/*** arrows **/
+.mv_smartmenu_news .sf-menu a.sf-with-ul {
+	padding-right: 	2.25em;
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+.mv_smartmenu_news .sf-sub-indicator {
+	position:absolute;
+	left:93.5% ;
+	top:50%; /* IE6 only */
+	display:block;
+	width:4px;
+	height:7px;
+	text-indent:-999em !important;
+	overflow:hidden;
+	/**/background:url(../images/icon.png) no-repeat; /* 8-bit indexed alpha png. IE6 gets solid image only */
+	
+}
+/* give all except IE6 the correct values */
+.mv_smartmenu_news a > .sf-sub-indicator {  
+	top:			37%;
+	background-position: -30px 0px; /* use translucent arrow for modern browsers*/
+}
+/* apply hovers to modern browsers */
+a:focus > .sf-sub-indicator,
+a:hover > .sf-sub-indicator,
+a:active > .sf-sub-indicator,
+li:hover > a > .sf-sub-indicator,
+li.sfHover > a > .sf-sub-indicator {
+	background-position: -30px -100px; /* arrow hovers for modern browsers*/
+}
+
+/* point right for anchors in subs */
+.sf-menu ul .sf-sub-indicator { background-position:  0px 0; }
+.sf-menu ul a > .sf-sub-indicator { background-position:  0 0; }
+/* apply hovers to modern browsers */
+.sf-menu ul a:focus > .sf-sub-indicator,
+.sf-menu ul a:hover > .sf-sub-indicator,
+.sf-menu ul a:active > .sf-sub-indicator,
+.sf-menu ul li:hover > a > .sf-sub-indicator,
+.sf-menu ul li.sfHover > a > .sf-sub-indicator {
+	background-position: -30px 0px; /* arrow hovers for modern browsers*/
+}
+
+/*** shadows for all but IE6 ***/
+.mv_smartmenu_news .sf-shadow ul {
+/*	
+	padding: 0 8px 9px 0;
+	-moz-border-radius-bottomleft: 17px;
+	-moz-border-radius-topright: 17px;
+	-webkit-border-top-right-radius: 17px;
+	-webkit-border-bottom-left-radius: 17px;
+*/
+}
+.mv_smartmenu_news .sf-shadow ul.sf-shadow-off {
+	background: transparent;
+}
+.mv_smartmenu_news .mw_menu_head{
+	border:none;
+	float:left;
+	width:100%;
+}
+.mv_smartmenu_news  .mw_menu_head h4.title{
+	color:#222;
+	font-size:1.0em;
+	line-height:1.35em;
+	margin:0 0 0;
+	padding:6px 10px;
+	border:1px solid #DDDDDD;
+	border-bottom:none;
+	background-color:#f2f2f2;
+	text-transform:uppercase;
+	text-decoration:none;
+}
+.mv_smartmenu_news .mw_menu_head h4.title a{
+	color:#222;
+	text-decoration:none;
+}
+.mw_shopby1{
+	margin-bottom: 1.3em;
+}
+.mw_shopby1_head {
+	background:transparent url(../images/layered_nav_head_bg.gif) no-repeat scroll 0 0;
+	height:24px;
+	margin:0;
+}
+.mw_shopby1 h4 {
+	background:#D5E8FF url(../images/layered_nav_narrowed_category_heading.gif) repeat scroll 0 0;
+	border-color:#fff;
+	border-style:solid none;
+	border-width:1px 0;
+	color:#1F5070;
+	font-size:1em;
+	font-weight:bold;
+	margin:0;
+	padding:3px 10px;
+}
+.mw_shopby1 p.block-subtitle{
+	background:#D5E8FF url(../images/layered_nav_narrowed_category_heading.gif) repeat scroll 0 0;
+	border-color:#fff;
+	border-style:solid none;
+	border-width:1px 0;
+	color:#1F5070;
+	font-size:1em;
+	font-weight:bold;
+	margin:0;
+	padding:3px 10px;
+}
+.mw_shopby1 .btn-remove{
+	float:right;
+	font-size:11px;
+	margin:4px 3px 1px 5px;
+}
+.mw_shopby1 .currently{
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.mw_shopby1 .actions{
+	text-align: right;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.mw_shopby1_content{
+	border: 0px none;
+	padding-bottom: 7px !important;
+}
+.mw_shopby1 .narrowed-category {
+	border-left:1px solid #DDDDDD;
+	border-right:1px solid #DDDDDD;
+	width:99%;
+}
+.mw_shopby1 .sf-vertical, .mw_shopby1 .sf-vertical li {
+	width:99%;
+}
+.mw_shopby1 .narrowed-category{
+	width: 99%;
+}
+.mw_shopby1 .sf-menu li ul li{
+	border-bottom:1px solid #FFFFFF;
+	border-left:1px solid #FFFFFF;
+	border-top:1px solid #DDDDDD;
+	padding:0.55em 1em;
+	width: 87.5%;
+}
+.mw_shopby1 .sf-menu li ul li a{
+	float: left;
+	border-bottom:0 none;
+	border-left:0 none;
+	border-top:0 none;
+	padding:0;
+	text-decoration:none;
+}
+.mw_shopby1 .sf-menu li ul li a span.sf-sub-indicator {
+	top:37%;
+	left:91%;
+}
+.mw_shopby1 .sf-menu li ul li :hover, .sf-menu li ul li .sfHover,
+.mw_shopby1 .sf-menu li ul li  a:focus, .sf-menu li ul li  a:hover, .sf-menu li ul li :active {
+	outline:		0;}
+.display{
+	border: 0px none !important;
+}
+.display_li span.sf-sub-indicator{
+	display: none;
+}

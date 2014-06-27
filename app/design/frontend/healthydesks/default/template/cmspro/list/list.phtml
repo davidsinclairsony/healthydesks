@@ -1,0 +1,47 @@
+<div class="clear"></div>
+<?php $news = $this->getNews();
+    if($news->count() < 1):
+?>
+	<div class="postWrapper">
+	<p><?php echo Mage::helper('cmspro')->__('There is no news in this category'); ?></p>
+	</div>
+	<?php
+	    else:
+	    $newsThumbnailSize = $this->getNewsThumbnailSize();
+	?>
+	<div class="postWrapper">
+	<?php foreach ($news as $n): 
+		$url = Mage::getModel('core/url_rewrite')->load($n->getUrlRewriteId());
+		?>
+		<div class="cmspro_list_item">
+		    <div class="cmspro_list_content">
+		    	<div class="cmspro_list_images cmspro_list_desktop">
+				<img class="img-responsive" src="<?php echo $this->helper('cmspro/image')->init($n->getImages())->resize($newsThumbnailSize['width'], $newsThumbnailSize['height']) ?>" alt="<?php echo ('')?>"/>
+				</div>
+		    	<div class="cmspro_list_summary">					
+					<h3><a href="<?php echo Mage::getBaseUrl().$url->getRequestPath();?>"><?php echo $n->getTitle();?></a></h3>
+					<?php $author ="";
+	        		      $author = $n->getAuthor();
+	        		      if($author != '') $author = Mage::helper('cmspro')->__(' | Posted by ').$author;?>
+					<div class="posted-date"><?php echo Mage::helper('cmspro')->__('published at');?> <?php echo Mage::helper('core')->formatDate($n->getCreatedTime(),Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM).$author;?></div>
+					<div class="cmspro_list_images cmspro_list_mobile">
+					   <img class="img-responsive" src="<?php echo $this->helper('cmspro/image')->init($n->getImages())->resize($newsThumbnailSize['width'], $newsThumbnailSize['height']) ?>" alt="<?php echo ('')?>"/>
+					</div>
+					<div>
+						<?php //$summary = Mage::helper('cms')->getPageTemplateProcessor()->filter($n->getSummary());
+						//echo $summary; 
+						echo substr($n->getSummary(),0,400)."..." ; ?>
+						<a href="<?php echo Mage::getBaseUrl().$url->getRequestPath();?>"><?php echo Mage::helper('cmspro')->__('More');?></a>
+					</div>
+		    	</div>
+				<div class="clear"></div>
+		    </div>
+	    </div>  
+	<?php endforeach; ?>		
+		<?php 
+			echo $this->getToolbarHtml(); 
+		?> 
+	</div>
+<?php
+    endif;
+?>

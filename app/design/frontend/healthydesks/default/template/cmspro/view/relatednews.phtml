@@ -1,0 +1,34 @@
+<?php 
+ $displayside=Mage::getStoreConfig('mw_cmspro/relatednews/display_related_news');
+if($displayside!='2'):
+?>
+			<?php if($this->getItems()->getSize()): ?>
+				<div class="block block-related">
+					<div class="block-title">
+						<strong><span><?php echo $this->__('Related News') ?></span></strong>
+					</div>
+					<div class="block-content">
+						
+						<ol class="mini-newss-list" id="block-related">
+						<?php $newsThumbnailSize = $this->getNewsThumbnailSize(); ?>
+						<?php foreach($this->getItems() as $_item): ?>
+						<?php $url = Mage::getModel('core/url_rewrite')->load($_item->getUrlRewriteId()); ?>
+							<li class="item">
+								<div class="news" style="margin-left:0;">
+									<a href="<?php echo Mage::getBaseUrl().$url->getRequestPath(); ?>" title="<?php echo $_item->getTitle(); ?>" class="news-image">
+										<img src="<?php echo $this->helper('cmspro/image')->init($_item->getImages()) ?>" width="50" height="50" alt="<?php //echo $_item->getTitle(); ?>" />
+									</a>
+									<div class="news-details">
+										<p class="news-name" ><a href="<?php echo Mage::getBaseUrl().$url->getRequestPath(); ?>"><?php echo $_item->getTitle(); ?></a></p>
+										<div  style="clear:both; width:inherit"></div>
+									</div>
+								</div>
+							</li>
+						<?php endforeach ?>
+						</ol>
+						<script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
+					</div>
+				</div>
+				<?php endif; ?>
+			
+<?php endif;?>

@@ -1,0 +1,47 @@
+<?php $_menu = $this->renderCategoriesMenuHtml(0,'level-top');?>
+<?php $categories = (Mage::getModel('cmspro/category')->getRootCategory());?>
+<?php $categories->addFieldToFilter('status',"1");?>
+<?php
+	$categories->getSelect()->join(
+			array('store'=>$categories->getTable('category_store')),
+			'main_table.category_id = store.category_id',
+			array('store.store_id')
+		)->where('store.store_id in (?)',array('0',Mage::app()->getStore()->getId())); 
+?>
+<?php ?>
+<div class="nav-container">
+    <ul id="nav">
+    	<?php
+    	// Catalog menu 
+    	if ($_menu): 
+        	echo $_menu; 
+        endif; 
+        
+		$current_cat_id = (isset($_SESSION['cmspro_current_cat'])) ? $_SESSION['cmspro_current_cat']:"";
+		$current_cat_id = (($this->getRequest()->getParam('id')) && ($this->getRequest()->getModuleName()=="cmspro") && ($this->getRequest()->getControllerName()=="category")) ? $this->getRequest()->getParam('id') : $current_cat_id;
+		$news_current = ($this->getRequest()->getModuleName()=="cmspro") ? true:false;
+        // News Category menu
+        $a = (Mage::getStoreConfig('mw_cmspro/left_menu_category/enable')) ? Mage::getStoreConfig('mw_cmspro/left_menu_category/enable'):"";
+        if($a=="1"){
+			if(Mage::getStoreConfig('mw_cmspro/left_menu_category/show_root_category')=="1"){
+				$root_menu = Mage::getModel('cmspro/category')->load(1);
+        ?>
+		        <li class="level0 nav-1 parent level-top last <?php echo ($news_current) ? "active":""; ?>" onmouseout="toggleMenu(this,0)" onmouseover="toggleMenu(this,1)">
+		        	<a href="<?php echo Mage::getBaseUrl().$root_menu->_getUrlRewrite() ?>" class="level-top"><span><?php echo $root_menu->getName() ?></span></a>
+		        	<ul class="level0">
+		        		<?php
+							foreach($categories as $cat){
+								echo Mage::getModel('cmspro/category')->drawItem($cat);
+							}
+		        		?>
+		        	</ul>
+		        </li>
+        	<?php 
+			}else{
+				foreach($categories as $cat){
+					echo Mage::getModel('cmspro/category')->drawItem($cat,0,false,$current_cat_id);
+				}
+        	} 
+		}?>
+    </ul>
+</div>

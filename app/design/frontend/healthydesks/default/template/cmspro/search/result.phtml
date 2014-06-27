@@ -1,0 +1,44 @@
+<!-- <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl()?>css/cmspro/style.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl()?>css/cmspro/cmspro.css" /> -->
+<?php if ($this->getHeaderText()): ?>
+	<div class="page-title"><h1><?php echo $this->getHeaderText(); ?></h1></div>
+<?php else:?>
+	<div class="page-title"><h1><?php echo Mage::helper('cmspro')->__('Search results for ')."&lsquo;".$this->getRequest()->get('keyword')."&rsquo;"; ?></h1></div>
+<?php endif;?>
+
+<?php //if(Mage::registry('result_search_news')) {
+	//$results = Mage::registry('result_search_news');
+	$results = $this->getNews();
+	$newsThumbnailSize = $this->getNewsThumbnailSize();
+	?>
+<div>
+	<?php
+	if(sizeof($results->getData())==0){?>
+		<div class="cmspro_error"><?php echo Mage::helper('cmspro')->__('Not found any results');?></div>
+	<?php }else{
+	?>
+		<?php foreach($results as $n){
+			$url = Mage::getSingleton('core/url_rewrite')->load($n->getUrlRewriteId());?>
+			<div class="cmspro_list_item">
+		    <div class="cmspro_list_content">
+		    	<div class="cmspro_list_images">
+				<img src="<?php echo $this->helper('cmspro/image')->init($n->getImages())->resize($newsThumbnailSize['width'], $newsThumbnailSize['height']) ?>" alt="<?php echo ('')?>"/></div>
+		    	<div class="cmspro_list_summary">					
+					<h3><a href="<?php echo Mage::getBaseUrl().$url->getRequestPath();?>"><?php echo $n->getTitle();?></a></h3>
+					<div class="posted-date"><?php echo Mage::helper('cmspro')->__('published at');?> <?php echo $n->getCreatedTime(); ?></div>
+					<div>
+						<?php echo substr($n->getSummary(),0,400)."..." ; ?>
+						<a href="<?php echo Mage::getBaseUrl().$url->getRequestPath();?>"><?php echo Mage::helper('cmspro')->__('More');?></a>
+					</div>
+		    	</div>
+				<div class="clear"></div>
+		    </div>
+		  
+	    </div>  
+		<?php }?>
+		<?php 
+			echo $this->getToolbarHtml(); 
+		?>  
+	<?php }?>
+</div>
+<? //} ?>
