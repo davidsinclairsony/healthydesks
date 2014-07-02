@@ -747,3 +747,11 @@ var ProductMediaManager = {
 $j(document).ready(function() {
     ProductMediaManager.init();
 });
+
+jQuery(document).on("change", "select.super-attribute-select", function(event) {
+	var variationName = jQuery(this).find("option:selected").text();
+	var imageIndex = jQuery("ul.product-image-thumbs li a[data-variation-label=" + variationName + "]").first().attr("data-image-index");
+	var target = $j('#image-' + imageIndex);
+	
+	ProductMediaManager.swapImage(target);
+});
