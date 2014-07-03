@@ -249,7 +249,7 @@ class MW_Cmspro_Adminhtml_NewsController extends Mage_Adminhtml_Controller_actio
 			}
 
 	  		// Rewrite URL
-			$suffix = Mage::getStoreConfig('mw_cmspro/info/category_suffix') ? Mage::getStoreConfig('mw_cmspro/info/category_suffix'):".html"; 
+			$suffix = Mage::getStoreConfig('mw_cmspro/info/category_suffix') ? Mage::getStoreConfig('mw_cmspro/info/category_suffix'):""; 
 			if($data['identifier']!=""){
 				$url_key = $data['identifier'];
 			}else{
@@ -513,7 +513,7 @@ class MW_Cmspro_Adminhtml_NewsController extends Mage_Adminhtml_Controller_actio
 			}
 			
 	  		// Rewrite URL
-			$suffix = Mage::getStoreConfig('mw_cmspro/info/category_suffix') ? Mage::getStoreConfig('mw_cmspro/info/category_suffix'):".html"; 
+			$suffix = Mage::getStoreConfig('mw_cmspro/info/category_suffix') ? Mage::getStoreConfig('mw_cmspro/info/category_suffix'):""; 
 			if($data['identifier']!=""){
 				$url_key = $data['identifier'];
 			}else{

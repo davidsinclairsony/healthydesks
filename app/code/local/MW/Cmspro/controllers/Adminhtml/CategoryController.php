@@ -211,7 +211,7 @@ class MW_Cmspro_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_A
 				}
 				
 				// Update URL Rewrite
-				$suffix = Mage::getStoreConfig('mw_cmspro/info/category_suffix') ? Mage::getStoreConfig('mw_cmspro/info/category_suffix'):".html"; 
+				$suffix = Mage::getStoreConfig('mw_cmspro/info/category_suffix') ? Mage::getStoreConfig('mw_cmspro/info/category_suffix'):""; 
 		  		$url = "";
 				$rq_path = "";
 				$identifier = isset($data['identifier']) ? $data['identifier'] : $data['name'];
