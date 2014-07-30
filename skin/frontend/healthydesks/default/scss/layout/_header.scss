@@ -160,14 +160,17 @@
 @include bp(min-width, $bp-medium + 1) {
 
     .logo {
-        max-width: 300px;
-        padding: 25px $trim 0 0;
+        max-width: 400px;
+        width: 85%;
+        padding: 10px 0 0 0;
 
         .small {
             display: none;
         }
         .large {
             display: block;
+            width: 95%;
+            max-width: auto;
         }
     }
 
@@ -180,8 +183,8 @@
 .skip-links {
     clear: both;
     overflow: hidden;
-    border-top: 1px solid #EDEDED;
-    border-bottom: 1px solid #EDEDED;
+    border-top: 1px solid $c-module-border;
+    border-bottom: 1px solid $c-module-border;
 }
 
 // ---------------------------------------------
@@ -239,7 +242,7 @@ a.skip-link {
 @include bp(max-width, $bp-medium) {
 
     .skip-link {
-        border-right: 1px solid #EDEDED;
+        border-right: 1px solid $c-module-border;
     }
 
     .skip-link:last-child {

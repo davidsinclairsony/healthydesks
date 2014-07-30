@@ -103,7 +103,7 @@ $c-black: #000000;
 
 // Text
 
-$c-text: #636363;
+$c-text: #3b3b3b;
 $c-text-gray: #A0A0A0;
 $c-text-white: #E6E6E6;
 // Primary font color for headings and other non-link text
@@ -175,9 +175,9 @@ $c-link-active: darken($c-action, (5% / 2));
 
 $c-module-background: #F4F4F4;
 // This should be applied whenever the border is surrounding a white element and/or is directly showing on white.
-$c-module-border: #CCCCCC;
+$c-module-border: lighten($c-blue, 40%); /* #CCCCCC; */
 // This should be applied whenever the border is wrapping an element with $c-module-background
-$c-module-border-light: #EDEDED;
+$c-module-border-light: lighten($c-blue, 60%);
 $c-module-border-highlight: $c-blue;
 
 // Table
@@ -212,7 +212,7 @@ $f-size-xxl: 18px;
 $f-size-xl: 16px;
 $f-size-l: 15px;
 
-$f-size: 14px;
+$f-size: 15px;
 
 $f-size-s: 13px;
 $f-size-xs: 12px;
@@ -220,5 +220,5 @@ $f-size-xxs: 11px;
 
 // Base Measures
 
-$b-line-height: 1.5;
-$b-margin-bottom: 1.5em;
+$b-line-height: 1.65;
+$b-margin-bottom: 1em;

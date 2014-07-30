@@ -646,14 +646,15 @@ var ProductMediaManager = {
             }
         }
 
-        image.elevateZoom({
+        // For single imape hover (fancy box is being used instead)
+        /* image.elevateZoom({
         	zoomType: "inner"
-        	/*zoomType: "lens",
+        	zoomType: "lens",
         	lensShape: "round",
         	lensSize : 300,
         	lensFadeIn: 500,
-        	lensFadeOut: 500*/
-        });
+        	lensFadeOut: 500
+        }); */
     },
 
     swapImage: function(targetImage) {
@@ -745,13 +746,41 @@ var ProductMediaManager = {
 };
 
 $j(document).ready(function() {
-    ProductMediaManager.init();
-});
-
-jQuery(document).on("change", "select.super-attribute-select", function(event) {
-	var variationName = jQuery(this).find("option:selected").text();
-	var imageIndex = jQuery("ul.product-image-thumbs li a[data-variation-label=" + variationName + "]").first().attr("data-image-index");
-	var target = $j('#image-' + imageIndex);
+	ProductMediaManager.init();
+    
+	// Product start fancybox
+	jQuery("a.gallery-image").fancybox();
+	 
+	 // Product swap pictures for attribute selections
+	jQuery(document).on("change", "select.super-attribute-select", function(event) {
+		var variationName = jQuery(this).find("option:selected").text();
+		var imageIndex = jQuery("ul.product-image-thumbs li a[data-variation-label=" + variationName + "]").first().attr("data-image-index");
+		if(imageIndex) {
+			var target = $j('#image-' + imageIndex);	
+			ProductMediaManager.swapImage(target);
+		}
+	});
 	
-	ProductMediaManager.swapImage(target);
+	// Product image carousel
+	jQuery('.product-image-thumbs').carouFredSel({
+		auto: false,
+		prev: '.previous',
+		next: '.next',
+		// scroll: 1,
+		mousewheel: true,
+		responsive: true,
+		width: '100%',
+		swipe: {
+			onMouse: true,
+			onTouch: true
+		},
+		items: {
+			width: 140,
+			//height: 90,
+			visible: {
+				min: 2,
+				max: 5
+			}
+		}
+	});
 });

@@ -157,6 +157,60 @@
         float: right;
         clear: right;
     }
+    
+    .stains-colors {
+	    > div {
+		    display: table-cell;
+		    padding: 0 30px 0 0;
+		    width: 40%;
+		    vertical-align: top;
+	    }
+	    
+	    > ul {
+	    	display: table-cell;
+	    	width: 60%;
+	    	vertical-align: top;
+	    
+		    li {
+		    	 display: inline-block;
+		    	 vertical-align: top;
+			    width: 19%;
+			    padding: 0 0 10px 10px;
+			    
+			    img {
+				    width: 100%;
+			    }
+			    
+			    p {
+				    text-align: center;
+			    }
+		    }
+	    }
+    }
+}
+
+.more-views {
+	text-align: center;
+	
+	h2 {
+		text-align: left;
+	}
+
+	.controls {
+		font-size: 2vw;
+		padding: 40px 10px;
+		width: 7%;
+		float: left;
+		
+		&.previous {
+			padding-left: 0;
+		}
+		
+		&.next {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
 }
 
 @include bp(max-width, 850px) {
@@ -175,7 +229,30 @@
                 }
             }
         }
+        
+        .stains-colors {
+		    > div {
+			    
+		    }
+		    
+		    > ul {
+			    li {
+				    width: 24%;
+				    
+				    img {
+					    
+				    }
+			    }
+		    }
+	    }
     }
+    
+    .more-views {
+		.controls {
+			font-size: 3vw;
+			width: 10%;
+		}
+	}
 }
 
 @include bp(max-width, $bp-medium) {
@@ -200,7 +277,35 @@
                 }
             }
         }
+        
+        .stains-colors {
+			    > div {
+				    display: block;
+				    padding: 00;
+				    width: 100%;
+			    }
+			    
+			    > ul {
+			    	display: block;
+			    	width: 100%;
+			    	vertical-align: top;
+			    
+				    li {
+					    padding: 10px 10px 0 0;
+					    
+					    img {
+						    
+					    }
+				    }
+			    }
+		    }
     }
+    
+    .more-views {
+		.controls {
+			font-size: 5vw;
+		}
+	}
 }
 
 @include bp(max-width, 420px) {
@@ -233,6 +338,8 @@
     .product-image {
         margin-bottom: $box-spacing;
         border: 1px solid $c-module-border;
+        position: relative;
+        cursor: -moz-zoom-in; cursor: -webkit-zoom-in; cursor: zoom-in;
     }
 
     .product-image img {
@@ -245,6 +352,29 @@
         // Centering the image for instances where max-height kicks in
         margin: 0px auto;
     }
+    
+    .product-image a {
+    		.zoom-message {
+			    position: absolute;
+			    bottom: 0;
+			    left: 44%;
+			    padding: 7px 10px;
+			    background: $c-module-border;
+			    cursor: -moz-zoom-in; cursor: -webkit-zoom-in; cursor: zoom-in;
+			    color: $c-text;
+			    font-size: 11px;
+			    text-transform: uppercase;
+			}
+			
+			&:hover {
+				cursor: -moz-zoom-in; cursor: -webkit-zoom-in; cursor: zoom-in;
+				
+				.zoom-message {
+					color: $c-action;
+					 background: $c-module-border-light;
+				}
+			}
+	 }
 }
 
 // On smaller devices, we want to further limit the height of the image, to prevent cropping
@@ -272,22 +402,26 @@
     @include loadingOverlay();
 }
 
-.product-image-thumbs {
-    li {
-        display: inline-block;
-    }
-    li:first-child {
-        margin-left: -1px;
-    }
-    a {
-        display: inline-block;
-        border: 1px solid transparent;
-    }
+.product-image-thumbs-wrapper {
+	width: 86%;
+	float: left;
 }
 
-.no-touch .product-image-thumbs {
-    a:hover {
-        border-color: darken($c-module-border-light, 15%);
+@include bp(max-width, 850px) {
+	.product-image-thumbs-wrapper {
+		width: 80%;
+	}
+}
+
+.product-image-thumbs {
+	li {
+        float: left;
+        margin: 0 1.5px;
+        text-align: left;
+    }
+    a {
+      display: inline-block;
+      border: 1px solid darken($c-module-border-light, 15%);
     }
 }
 

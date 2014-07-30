@@ -1,4 +1,5 @@
 <layout version="0.1.0">
+
 <default>
     
     <reference name="head">
@@ -9,13 +10,28 @@
         <action method="removeItem"><type>skin_css</type><name>css/madisonisland-ie8.css</name></action>
         <action method="removeItem"><type>link_rel</type><name>//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600</name></action>
         <action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,700,800,600</href></action>
-    </reference>
+        <action method="addItem"><type>skin_js</type><name>js/lib/jquery.fancybox.pack.js</name></action>
+        <action method="addItem"><type>skin_css</type><name>css/lib/fancybox/jquery.fancybox.css</name></action>
+        <action method="addItem"><type>skin_js</type><name>js/lib/jquery.carouFredSel-6.2.1-packed.js</name></action>
+   </reference>
     
-    <reference name="header">
+   <reference name="header">
 	    <block type="cms/block" name="welcome_message">
 			 <action method="setBlockId"><block_id>welcome_message</block_id></action>
 		 </block>
     </reference>
     
 </default>
+
+<catalog_product_view>
+    <reference name="product.info">
+	    <block type="cms/block" name="colors">
+			 <action method="setBlockId"><block_id>colors</block_id></action>
+		 </block>
+		 <block type="cms/block" name="stains">
+			 <action method="setBlockId"><block_id>stains</block_id></action>
+		 </block>
+    </reference>
+ </catalog_product_view>
+
 </layout>

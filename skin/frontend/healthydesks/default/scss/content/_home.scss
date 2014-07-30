@@ -94,7 +94,7 @@ body.cms-home {
  */
 
 ul.promos {
-    margin: $trim 0 0 0;
+    margin: 0 0 0 0;
     padding: 0;
     width: 100%;
 }
@@ -106,31 +106,13 @@ ul.promos {
 /* Specifying the body only in order to override the .std ul li styling */
 
 body .promos > li {
-	margin: 0 0 10px 0;
 	list-style: none;
 	text-align: center;
 	position: relative;
 	@include not-selectable;
     
 	a {
-		display: block;
-		
-		div {
-			display: inline-block;
-			padding: 0 40px 0 0;
-			background: url(../images/arrow-icon.png) no-repeat right center;
-			font-weight: 400;
-			font-size: 14px;
-			font-family: $f-stack-special;
-			text-transform: uppercase;
-			color: $c-text;
-			letter-spacing: $letter-spacing-special;
-			
-			strong {
-				font-weight: 700;
-				font-size: 22px;
-			}			
-		}
+		display: block;		
 	}
 }
 
@@ -169,31 +151,71 @@ body .promos > li {
 
 body.cms-home ul.articles {
 	list-style: none;
-	padding: 25px 0 0 0;
+	padding: 5px 0 0 0;
 	margin: 0;
 	
 	li {
 		clear: both;
-		display: table;
 		border-top: 1px solid $c-module-border;
 		padding: 30px 0;
+		margin: 0;
+		float: left;
 		
 		&:last-child {
 			padding-bottom: 10px;
 		}
+		
+		&:nth-child(n + 2) {
+			article, aside {
+				height: 353px;
+			}
+		}
+		
+		&:nth-child(4) {
+			aside {
+				border-bottom: 1px solid #efefef;
+			}
+		}
+		
+		&:nth-child(6) {
+			aside {
+				border-left: 1px solid #efefef;
+			}
+		}
 	
 		article {
 			width: 50%;
-			padding: 0 20px 0 0;
-			display: table-cell;
-			vertical-align: middle;
+			height: 300px;
+			padding: 0 30px 0 0;
+			float: left;
+			display: table;
+			
+			div {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			
+			h2 {
+				color: $c-link;
+				margin: 0;
+			}
+			
+			h3 {
+				text-transform: none;
+			}
 		}
 		
 		aside {
 			width: 50%;
-			padding: 0 0 0 20px;
-			display: table-cell;
-			vertical-align: middle;
+			float: right;
+			height: 300px;
+			display: table;
+			padding: 0 0 0 30px;
+			
+			div {
+				display: table-cell;
+				vertical-align: middle;
+			}
 			
 			img {
 				width: 100%;
@@ -202,11 +224,13 @@ body.cms-home ul.articles {
 		
 		&:nth-child(even) {
 			article {
-				padding: 0 0 0 20px;
+				padding: 0 0 0 30px;
+				float: right;
 			}
 			
 			aside {
-				padding: 0 20px 0 0;
+				float: left;
+				padding: 0 30px 0 0;
 			}
 		}
 	}
@@ -230,6 +254,10 @@ body.cms-home ul.articles {
         width: percentage(133.333333333 / 420);
         margin-right: percentage(10 / 420);
     }
+    
+    .promos > li:nth-child(1n) {
+        margin-left: 0;
+    }
 
     .promos > li:nth-child(3n) {
         margin-right: 0;
@@ -239,6 +267,8 @@ body.cms-home ul.articles {
 
 @include bp(max-width, $bp-medium) {
 	body .promos > li {
+		margin: 0 !important;
+	
 		&:first-child a div {
 			padding: 0;
 			background: none;
@@ -246,6 +276,15 @@ body.cms-home ul.articles {
 		&:nth-child(n + 2) a div {
 			padding: 40px 0 0 0;
 			background: url(../images/arrow-icon.png) no-repeat center 0px;
+		}
+		
+		a {
+			text-align: center;
+		}
+		
+		img {
+			max-width: 400px;
+			display: inline-block;
 		}
 	}
 	
@@ -258,26 +297,26 @@ body.cms-home ul.articles {
 			article {
 				width: 100%;
 				padding: 0;
-				display: block;
+				height: auto !important;
 			}
 			
 			aside {
 				width: 100%;
 				padding: 20px 0 0 0;
-				display: block;
+				height: auto !important;
 				
 				img {
-					
+					width: 100%;
 				}
 			}
 			
 			&:nth-child(even) {
 				article {
-					padding: 20px 0 0 0;
+					padding: 0;
 				}
 				
 				aside {
-					padding: 0;
+					padding: 20px 0 0 0;
 				}
 			}
 		}
