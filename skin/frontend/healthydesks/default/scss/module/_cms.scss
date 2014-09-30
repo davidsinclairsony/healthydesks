@@ -50,7 +50,6 @@
             color: $c-text;
             font-family: $f-stack-serif;
             font-size: 14px;
-            font-style: italic;
             line-height: 24px;
         }
 
@@ -66,7 +65,6 @@
             color: $c-text;
             font-family: $f-stack-serif;
             font-size: $f-size;
-            font-style: italic;
             line-height: 24px;
         }
     }
@@ -142,37 +140,5 @@
         li {
             margin: 3px 0;
         }
-    }
-}
-
-// ----------------------------------------------
-// Contact page
-
-.contacts-index-index {
-    h1 {
-        border: none;
-    }
-}
-
-#contactForm {
-    padding-left: 40px;
-
-    h2 {
-        display: none;
-    }
-
-    &:after {
-        @include clearfix;
-    }
-
-    .fieldset .legend + .required {
-        margin: 0;
-    }
-}
-
-@include bp(max-width, $bp-medium) {
-
-    #contactForm {
-        padding-left: 0;
     }
 }

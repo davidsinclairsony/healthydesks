@@ -26,7 +26,6 @@
 // ==============================================
 // Core Application / Full MQ Support
 // ==============================================
-
 $mq-support: true;
 $mq-fixed-value: false;
 
@@ -34,3 +33,6 @@ $mq-fixed-value: false;
 @import "core";
 
 @import "content/home";
+@import "content/our-story";
+@import "content/benefits";
+@import "content/features";

@@ -159,26 +159,19 @@
     }
     
     .stains-colors {
-	    > div {
-		    display: table-cell;
-		    padding: 0 30px 0 0;
-		    width: 40%;
-		    vertical-align: top;
-	    }
-	    
+    	h3 {
+	    	color: $c-blue;
+    	}
+    
 	    > ul {
-	    	display: table-cell;
-	    	width: 60%;
-	    	vertical-align: top;
+	    	padding: 40px 0 20px 0;
 	    
-		    li {
+	    	li {
+		    	 padding: 0 18px 18px 0;
 		    	 display: inline-block;
-		    	 vertical-align: top;
-			    width: 19%;
-			    padding: 0 0 10px 10px;
 			    
 			    img {
-				    width: 100%;
+				    max-width: 100%;
 			    }
 			    
 			    p {
@@ -231,16 +224,21 @@
         }
         
         .stains-colors {
-		    > div {
-			    
-		    }
-		    
-		    > ul {
-			    li {
-				    width: 24%;
+		    ul {
+			    padding: 20px 0 10px 0;
+	    
+		    	li {
+			    	 padding: 0 10px 10px 0;
+			    	 display: inline-block;
+			    	 vertical-align: top;
+			    	 max-width: 48%;
 				    
 				    img {
-					    
+					    max-width: 100%;
+				    }
+				    
+				    p {
+					    text-align: center;
 				    }
 			    }
 		    }
@@ -279,26 +277,8 @@
         }
         
         .stains-colors {
-			    > div {
-				    display: block;
-				    padding: 00;
-				    width: 100%;
-			    }
 			    
-			    > ul {
-			    	display: block;
-			    	width: 100%;
-			    	vertical-align: top;
-			    
-				    li {
-					    padding: 10px 10px 0 0;
-					    
-					    img {
-						    
-					    }
-				    }
-			    }
-		    }
+		   }
     }
     
     .more-views {

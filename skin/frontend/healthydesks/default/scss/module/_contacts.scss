@@ -28,8 +28,33 @@
  * ============================================ */
 
 .contacts-index-index {
+	.two-columns {
+		display: table;
+		table-layout: fixed;
+		padding: 20px 0 0 0;
+		width: 100%;
+		
+		* {
+			box-sizing: border-box;
+		}
+		
+		> * {
+			display: table-cell;
+			vertical-align: top;
+			width: 35%;
+			
+			&:last-child {
+				padding: 0 0 0 80px;
+				width: 65%;
+				
+				img {
+					 width: 100%;
+				 }
+			}
+		}
+	}
+
     .buttons-set {
-        margin-left: $trim;
         max-width: 435px;
 
         p.required {
@@ -50,4 +75,54 @@
             }
         }
     }
+}
+
+#contactForm {
+	h2 {
+        display: none;
+    }
+
+    &:after {
+        @include clearfix;
+    }
+
+    .fieldset .legend + .required {
+        margin: 0;
+    }
+}
+
+@include bp(max-width, $bp-large) {
+
+    .contacts-index-index {
+		.two-columns {
+			> * {
+				&:last-child {
+					padding: 0 0 0 40px;
+				}
+			}
+		}
+	}
+}
+
+@include bp(max-width, $bp-medium) {
+
+    .contacts-index-index {
+		.two-columns {
+			display: block;
+			
+			> * {
+				display: block;
+				width: 100%;
+			
+				&:last-child {
+					padding: 20px 0 0 0;
+					width: 100%;
+					
+					img {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
 }

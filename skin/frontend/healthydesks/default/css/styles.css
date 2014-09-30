@@ -1072,7 +1072,6 @@ h6, .h6 {
   text-transform: uppercase;
   font-size: 24px;
   font-weight: 600;
-  color: #3b3b3b;
   border-bottom: 1px solid white;
   padding-bottom: 3px;
   margin-bottom: 15px;
@@ -3301,7 +3300,7 @@ p.required,
 
 form .form-instructions {
   font-style: italic;
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   font-size: 13px;
   color: #a0a0a0;
 }
@@ -3365,7 +3364,7 @@ form .form-instructions {
 
 .data-table tbody td,
 .data-table tfoot td {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
 }
 
 .data-table tfoot tr {
@@ -4184,7 +4183,7 @@ a.skip-link {
 }
 @media only screen and (min-width: 1200px) {
   .nav-primary a.level0 {
-    padding: 0 15px;
+    padding: 0 12px;
   }
 }
 /**
@@ -5819,25 +5818,18 @@ p.product-name a:hover {
   float: right;
   clear: right;
 }
-.product-view .stains-colors > div {
-  display: table-cell;
-  padding: 0 30px 0 0;
-  width: 40%;
-  vertical-align: top;
+.product-view .stains-colors h3 {
+  color: #0083d7;
 }
 .product-view .stains-colors > ul {
-  display: table-cell;
-  width: 60%;
-  vertical-align: top;
+  padding: 40px 0 20px 0;
 }
 .product-view .stains-colors > ul li {
+  padding: 0 18px 18px 0;
   display: inline-block;
-  vertical-align: top;
-  width: 19%;
-  padding: 0 0 10px 10px;
 }
 .product-view .stains-colors > ul li img {
-  width: 100%;
+  max-width: 100%;
 }
 .product-view .stains-colors > ul li p {
   text-align: center;
@@ -5872,8 +5864,20 @@ p.product-name a:hover {
   .product-view .product-shop .price-box .price-including-tax .price {
     font-size: 18px;
   }
-  .product-view .stains-colors > ul li {
-    width: 24%;
+  .product-view .stains-colors ul {
+    padding: 20px 0 10px 0;
+  }
+  .product-view .stains-colors ul li {
+    padding: 0 10px 10px 0;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 48%;
+  }
+  .product-view .stains-colors ul li img {
+    max-width: 100%;
+  }
+  .product-view .stains-colors ul li p {
+    text-align: center;
   }
 
   .more-views .controls {
@@ -5894,19 +5898,6 @@ p.product-name a:hover {
   .product-view .product-shop .price-box .price-excluding-tax .price,
   .product-view .product-shop .price-box .price-including-tax .price {
     font-size: 20px;
-  }
-  .product-view .stains-colors > div {
-    display: block;
-    padding: 00;
-    width: 100%;
-  }
-  .product-view .stains-colors > ul {
-    display: block;
-    width: 100%;
-    vertical-align: top;
-  }
-  .product-view .stains-colors > ul li {
-    padding: 10px 10px 0 0;
   }
 
   .more-views .controls {
@@ -7261,7 +7252,7 @@ p.product-name a:hover {
   display: none;
 }
 .cart-table .product-cart-sku {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   font-style: italic;
   font-size: 12px;
   margin: 5px 0 12px;
@@ -7564,7 +7555,7 @@ p.product-name a:hover {
   margin-bottom: 10px;
 }
 .shipping .sp-methods label {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   font-size: 12px;
   font-style: italic;
   min-width: 100px;
@@ -8120,7 +8111,7 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
 .block-progress dd {
   padding-left: 15px;
   margin-bottom: 10px;
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   font-style: italic;
 }
 .block-progress dd address {
@@ -8133,7 +8124,7 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
   padding: 0;
   margin: 0 0 3px 0;
   color: #3b3b3b;
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   text-transform: none;
   font-style: italic;
   float: left;
@@ -8652,7 +8643,7 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
 
 .opc #opc-login p:not(.required) {
   font-style: italic;
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   font-size: 13px;
   color: #a0a0a0;
 }
@@ -8842,7 +8833,7 @@ body.customer-account .sidebar .block-reorder ol#cart-sidebar-reorder p.product-
 }
 .dashboard .box-account p,
 .dashboard .box-account address {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   font-style: italic;
 }
 .dashboard .col2-set .col-1,
@@ -8911,7 +8902,7 @@ body.customer-account .sidebar .block-reorder ol#cart-sidebar-reorder p.product-
  * Address Book
  * ============================================ */
 .my-account .addresses-list {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
 }
 .my-account .addresses-list .col-1,
 .my-account .addresses-list .col-2 {
@@ -9011,11 +9002,11 @@ body.customer-account .sidebar .block-reorder ol#cart-sidebar-reorder p.product-
 }
 .order-info-box .box-content {
   float: left;
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
 }
 .order-info-box .box-content td,
 .order-info-box .box-content th {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   line-height: 1.3;
 }
 .order-info-box .box-content th {
@@ -9150,7 +9141,7 @@ ol#cart-sidebar-reorder p.product-name {
     margin-top: 0;
   }
   .dashboard .welcome-msg {
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   }
   .dashboard .welcome-msg .hello {
     font-style: italic;
@@ -9298,8 +9289,28 @@ body.newsletter-manage-index .my-account .form-list {
 /* ============================================ *
  * Contacts
  * ============================================ */
+.contacts-index-index .two-columns {
+  display: table;
+  table-layout: fixed;
+  padding: 20px 0 0 0;
+  width: 100%;
+}
+.contacts-index-index .two-columns * {
+  box-sizing: border-box;
+}
+.contacts-index-index .two-columns > * {
+  display: table-cell;
+  vertical-align: top;
+  width: 35%;
+}
+.contacts-index-index .two-columns > *:last-child {
+  padding: 0 0 0 80px;
+  width: 65%;
+}
+.contacts-index-index .two-columns > *:last-child img {
+  width: 100%;
+}
 .contacts-index-index .buttons-set {
-  margin-left: 30px;
   max-width: 435px;
 }
 .contacts-index-index .buttons-set p.required {
@@ -9319,6 +9330,39 @@ body.newsletter-manage-index .my-account .form-list {
   }
 }
 
+#contactForm h2 {
+  display: none;
+}
+#contactForm:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#contactForm .fieldset .legend + .required {
+  margin: 0;
+}
+
+@media only screen and (max-width: 979px) {
+  .contacts-index-index .two-columns > *:last-child {
+    padding: 0 0 0 40px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .contacts-index-index .two-columns {
+    display: block;
+  }
+  .contacts-index-index .two-columns > * {
+    display: block;
+    width: 100%;
+  }
+  .contacts-index-index .two-columns > *:last-child {
+    padding: 20px 0 0 0;
+    width: 100%;
+  }
+  .contacts-index-index .two-columns > *:last-child img {
+    width: 100%;
+  }
+}
 /**
  * Magento
  *
@@ -9559,7 +9603,7 @@ div.paypal-logo span > img {
   text-transform: uppercase;
 }
 #customer-reviews dl dd {
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   font-size: 15px;
   margin: 10px 0;
 }
@@ -10745,9 +10789,8 @@ div.paypal-logo span > img {
 .cms-page-view .std p,
 .cms-no-route .std p {
   color: #3b3b3b;
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   font-size: 14px;
-  font-style: italic;
   line-height: 24px;
 }
 .cms-page-view .std h1,
@@ -10761,9 +10804,8 @@ div.paypal-logo span > img {
 .cms-page-view .std li,
 .cms-no-route .std li {
   color: #3b3b3b;
-  font-family: Georgia, Times, "Times New Roman", serif;
+  font-family: "Open Sans", Georgia, Times, "Times New Roman", serif;
   font-size: 15px;
-  font-style: italic;
   line-height: 24px;
 }
 .cms-page-view .col-left:after,
@@ -10874,30 +10916,6 @@ div.paypal-logo span > img {
   margin: 3px 0;
 }
 
-.contacts-index-index h1 {
-  border: none;
-}
-
-#contactForm {
-  padding-left: 40px;
-}
-#contactForm h2 {
-  display: none;
-}
-#contactForm:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-#contactForm .fieldset .legend + .required {
-  margin: 0;
-}
-
-@media only screen and (max-width: 770px) {
-  #contactForm {
-    padding-left: 0;
-  }
-}
 /**
  * Magento
  *
@@ -11058,36 +11076,6 @@ div.calendar table td.button {
   text-transform: none;
 }
 
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     default_default
- * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-/* ============================================ *
- * Homepage
- * ============================================ */
-/* -------------------------------------------- *
- * Primary Banner
- */
 body.cms-home .main-container {
   padding-top: 20px;
 }
@@ -11243,7 +11231,7 @@ body.cms-home ul.articles li article div {
 }
 body.cms-home ul.articles li article h2 {
   color: #0083d7;
-  margin: 0;
+  margin: 0 0 5px 0;
 }
 body.cms-home ul.articles li article h3 {
   text-transform: none;
@@ -11342,5 +11330,217 @@ body.cms-home ul.articles li:nth-child(even) aside {
 
   .promos strong {
     font-size: 24px;
+  }
+}
+body.cms-our-story h2 {
+  text-transform: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+body.cms-our-story h2:nth-of-type(n + 2) {
+  padding: 20px 0 0 0;
+}
+body.cms-our-story img {
+  float: right;
+  margin: 0 0 15px 20px;
+}
+@media only screen and (max-width: 979px) {
+  body.cms-our-story img {
+    float: right;
+    margin: 0 0 15px 20px;
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 770px) {
+  body.cms-our-story img {
+    float: none;
+    margin: 0 0 10px 0;
+    width: 100%;
+  }
+}
+
+body.cms-benefits ul.articles {
+  list-style: none;
+  padding: 5px 0 0 0;
+  margin: 0;
+}
+body.cms-benefits ul.articles li {
+  clear: both;
+  border-top: 1px solid #a4dbff;
+  padding: 30px 0;
+  margin: 0;
+  float: left;
+  /*&:nth-child(4) {
+  	aside {
+  		border-bottom: 1px solid #efefef;
+  	}
+  }
+  
+  &:nth-child(6) {
+  	aside {
+  		border-left: 1px solid #efefef;
+  	}
+  }*/
+}
+body.cms-benefits ul.articles li:last-child {
+  padding-bottom: 10px;
+}
+body.cms-benefits ul.articles li:nth-child(n + 2) article, body.cms-benefits ul.articles li:nth-child(n + 2) aside {
+  height: 353px;
+}
+body.cms-benefits ul.articles li article {
+  width: 50%;
+  height: 300px;
+  padding: 0 30px 0 0;
+  float: left;
+  display: table;
+}
+body.cms-benefits ul.articles li article div {
+  display: table-cell;
+  vertical-align: middle;
+}
+body.cms-benefits ul.articles li article h2 {
+  color: #0083d7;
+  margin: 0 0 5px 0;
+}
+body.cms-benefits ul.articles li article h3 {
+  text-transform: none;
+}
+body.cms-benefits ul.articles li aside {
+  width: 50%;
+  float: right;
+  height: 300px;
+  display: table;
+  padding: 0 0 0 30px;
+}
+body.cms-benefits ul.articles li aside div {
+  display: table-cell;
+  vertical-align: middle;
+}
+body.cms-benefits ul.articles li aside img {
+  width: 100%;
+}
+body.cms-benefits ul.articles li:nth-child(even) article {
+  padding: 0 0 0 30px;
+  float: right;
+}
+body.cms-benefits ul.articles li:nth-child(even) aside {
+  float: left;
+  padding: 0 30px 0 0;
+}
+
+@media only screen and (max-width: 770px) {
+  body.cms-benefits ul.articles li article {
+    width: 100%;
+    padding: 0;
+    height: auto !important;
+  }
+  body.cms-benefits ul.articles li aside {
+    width: 100%;
+    padding: 20px 0 0 0;
+    height: auto !important;
+  }
+  body.cms-benefits ul.articles li aside img {
+    width: 100%;
+  }
+  body.cms-benefits ul.articles li:nth-child(even) article {
+    padding: 0;
+  }
+  body.cms-benefits ul.articles li:nth-child(even) aside {
+    padding: 20px 0 0 0;
+  }
+}
+body.cms-features ul.articles {
+  list-style: none;
+  padding: 5px 0 0 0;
+  margin: 0;
+}
+body.cms-features ul.articles > li {
+  clear: both;
+  border-top: 1px solid #a4dbff;
+  padding: 30px 0;
+  margin: 0;
+  float: left;
+}
+body.cms-features ul.articles > li:last-child {
+  padding-bottom: 10px;
+}
+body.cms-features ul.articles > li:nth-child(n + 2) article, body.cms-features ul.articles > li:nth-child(n + 2) aside {
+  height: 353px;
+}
+body.cms-features ul.articles > li:nth-child(4) aside {
+  border-bottom: 1px solid #efefef;
+}
+body.cms-features ul.articles > li:nth-child(6) aside {
+  border-left: 1px solid #efefef;
+}
+body.cms-features ul.articles > li article {
+  width: 50%;
+  height: 300px;
+  padding: 0 30px 0 0;
+  float: left;
+  display: table;
+}
+body.cms-features ul.articles > li article div {
+  display: table-cell;
+  vertical-align: middle;
+}
+body.cms-features ul.articles > li article h2 {
+  color: #0083d7;
+  margin: 0 0 5px 0;
+}
+body.cms-features ul.articles > li article h3 {
+  text-transform: none;
+}
+body.cms-features ul.articles > li aside {
+  width: 50%;
+  float: right;
+  height: 300px;
+  display: table;
+  padding: 0 0 0 30px;
+}
+body.cms-features ul.articles > li aside div {
+  display: table-cell;
+  vertical-align: middle;
+}
+body.cms-features ul.articles > li aside img {
+  width: 100%;
+}
+body.cms-features ul.articles > li:nth-child(even) article {
+  padding: 0 0 0 30px;
+  float: right;
+}
+body.cms-features ul.articles > li:nth-child(even) aside {
+  float: left;
+  padding: 0 30px 0 0;
+}
+body.cms-features p.made-in-usa {
+  margin: 30px 0 0 0;
+  clear: both;
+  text-align: center;
+}
+body.cms-features p.made-in-usa img {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 770px) {
+  body.cms-features ul.articles li article {
+    width: 100%;
+    padding: 0;
+    height: auto !important;
+  }
+  body.cms-features ul.articles li aside {
+    width: 100%;
+    padding: 20px 0 0 0;
+    height: auto !important;
+  }
+  body.cms-features ul.articles li aside img {
+    width: 100%;
+  }
+  body.cms-features ul.articles li:nth-child(even) article {
+    padding: 0;
+  }
+  body.cms-features ul.articles li:nth-child(even) aside {
+    padding: 20px 0 0 0;
   }
 }

@@ -1,0 +1,33 @@
+body.cms-our-story {
+	h2 {
+		text-transform: none;
+		font-weight: bold;
+		font-size: 20px;
+		
+		&:nth-of-type(n + 2) {
+			padding: 20px 0 0 0;
+		}
+	}
+	
+	img {
+		float: right;
+		margin: 0 0 15px 20px;
+	}
+
+	@include bp(max-width, $bp-large) {
+	    img {
+			float: right;
+			margin: 0 0 15px 20px;
+			width: 50%;
+		}
+
+	}
+	
+	@include bp(max-width, $bp-medium) {
+		img {
+			float: none;
+			margin: 0 0 10px 0;
+			width: 100%;
+		}
+	}
+}

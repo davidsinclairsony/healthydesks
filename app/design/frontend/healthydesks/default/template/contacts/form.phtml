@@ -28,10 +28,12 @@
 <div class="page-title">
     <h1><?php echo Mage::helper('contacts')->__('Contact') ?></h1>
 </div>
-<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post" class="scaffold-form">
+<p>All of our friendly and knowledgeable customer service representatives are here to help you with all your needs. Whether it’s purchasing, customizing or technical support. Or just to find out what it’s like to work on a standing desk, as all of our customer service representatives work on Healthy Desks. Fill out the simple form or give us a call at 800-872-0560.</p>
+
+<div class="two-columns">
+	<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post" class="scaffold-form">
     <div class="fieldset">
         <h2 class="legend"><?php echo Mage::helper('contacts')->__('Contact Information') ?></h2>
-        <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
         <ul class="form-list">
             <li class="fields">
                 <div class="field">
@@ -62,10 +64,15 @@
         </ul>
     </div>
     <div class="buttons-set">
+    	<p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
         <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
         <button type="submit" title="<?php echo Mage::helper('contacts')->__('Submit') ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
     </div>
 </form>
+<div>
+	<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA). 'wysiwyg/Customer-Service.jpg'; ?>" />
+</div>
+</div>
 <script type="text/javascript">
 //<![CDATA[
     var contactForm = new VarienForm('contactForm', true);
