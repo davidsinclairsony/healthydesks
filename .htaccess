@@ -1,3 +1,8 @@
+## Ensure only HTTPS
+RewriteCond %{SERVER_PORT} ^80$ [OR]
+RewriteCond %{HTTPS} =off
+RewriteRule ^(.*)$ https://healthydesks.com/$1 [R=301,L]
+
 ############################################
 ## uncomment these lines for CGI mode
 ## make sure to specify the correct cgi php binary file name
@@ -207,10 +212,3 @@
 ## http://developer.yahoo.com/performance/rules.html#etags
 
     #FileETag none
-
-AuthUserFile   /chroot/home/earthlit/standup.earthlitedev.com/html/.htpasswd
-AuthGroupFile  /dev/null
-AuthType       Basic
-AuthName       Protected
-#AuthPAM_Enabled off
-require valid-user

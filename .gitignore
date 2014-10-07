@@ -1,9 +1,9 @@
 /.htaccess
+/.htpasswd
 app/etc/local.xml
 media/catalog/product/cache
 media/css
 media/js
-media/catalog/product
 media/temp
 skin/frontend/healthydesks/default/scss/.sass-cache
 var/backups
