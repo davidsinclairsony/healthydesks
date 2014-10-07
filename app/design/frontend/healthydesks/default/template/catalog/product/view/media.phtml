@@ -75,30 +75,32 @@
         
         
         <?php // Load child images
-        foreach ($_product->getTypeInstance(true)->getUsedProducts(null, $_product) as $simpleProduct) {
-				$product_id = $simpleProduct->getId();
-				$full_product = Mage::getModel('catalog/product')->load($product_id);
-				
-				$galleryData = $full_product->getData('media_gallery');
-				
-				foreach ($galleryData['images'] as $image) { 
+        if($_product->getTypeId() != 'simple') {
+	        foreach ($_product->getTypeInstance(true)->getUsedProducts(null, $_product) as $simpleProduct) {
+					$product_id = $simpleProduct->getId();
+					$full_product = Mage::getModel('catalog/product')->load($product_id);
 					
-					$_imageUrl = $this->helper('catalog/image')
-	                ->init($full_product, 'image', $image["file"])
-	                ->keepFrame(false)
-	                ->constrainOnly(true)
-	                ->resize(1200);
-				?>
-					<a href="<?php echo $_imageUrl; ?>"
-			         rel="gallery-image"
-			         id="image-<?php echo $i; ?>"
-				      class="gallery-image"
-				   >
-						<img src="<?php echo $_imageUrl; ?>" />
-						<div class="zoom-message">Click to zoom</div>
-					</a>
+					$galleryData = $full_product->getData('media_gallery');
 					
-				<?php $i++; }
+					foreach ($galleryData['images'] as $image) { 
+						
+						$_imageUrl = $this->helper('catalog/image')
+		                ->init($full_product, 'image', $image["file"])
+		                ->keepFrame(false)
+		                ->constrainOnly(true)
+		                ->resize(1200);
+					?>
+						<a href="<?php echo $_imageUrl; ?>"
+				         rel="gallery-image"
+				         id="image-<?php echo $i; ?>"
+					      class="gallery-image"
+					   >
+							<img src="<?php echo $_imageUrl; ?>" />
+							<div class="zoom-message">Click to zoom</div>
+						</a>
+						
+					<?php $i++; }
+				}
 			} ?>
     </div>
 </div>
@@ -124,21 +126,23 @@
 	    <?php $i++; endforeach; ?>
 		 
 		 <?php // Load child images
-	     foreach ($_product->getTypeInstance(true)->getUsedProducts(null, $_product) as $simpleProduct) {
-				$product_id = $simpleProduct->getId();
-				$full_product = Mage::getModel('catalog/product')->load($product_id);
-				
-				$galleryData = $full_product->getData('media_gallery');
-				
-				foreach ($galleryData['images'] as $image) { ?>
-					<li>
-				      <a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($image["label"]) ?>" data-variation-label="<?php echo $full_product->getResource()->getAttribute('color')->getFrontend()->getValue($full_product)
-	 ?>" data-image-index="<?php echo $i; ?>">
-				          <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $image["file"])->resize(250); ?>" width="112" height="112" alt="<?php echo $this->escapeHtml($image["label"]) ?>" />
-				      </a>
-				  </li>
+		 if($_product->getTypeId() != 'simple') {
+		     foreach ($_product->getTypeInstance(true)->getUsedProducts(null, $_product) as $simpleProduct) {
+					$product_id = $simpleProduct->getId();
+					$full_product = Mage::getModel('catalog/product')->load($product_id);
 					
-				<?php $i++; }
+					$galleryData = $full_product->getData('media_gallery');
+					
+					foreach ($galleryData['images'] as $image) { ?>
+						<li>
+					      <a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($image["label"]) ?>" data-variation-label="<?php echo $full_product->getResource()->getAttribute('color')->getFrontend()->getValue($full_product)
+		 ?>" data-image-index="<?php echo $i; ?>">
+					          <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $image["file"])->resize(250); ?>" width="112" height="112" alt="<?php echo $this->escapeHtml($image["label"]) ?>" />
+					      </a>
+					  </li>
+						
+					<?php $i++; }
+				}
 			} ?>
 	    </ul>
 	 </div>
