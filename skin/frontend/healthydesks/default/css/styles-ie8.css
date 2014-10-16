@@ -5689,6 +5689,8 @@ p.product-name a:hover {
  */
 .call-in-order {
   display: none;
+  font-weight: bold;
+  color: red;
 }
 
 /**
