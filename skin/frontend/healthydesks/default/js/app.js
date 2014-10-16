@@ -761,6 +761,20 @@ $j(document).ready(function() {
 		}
 	});
 	
+	 // Product disable "Add to Cart" for custom selection
+	jQuery(document).on("change", "select.super-attribute-select", function(event) {
+		var variationName = jQuery(this).find("option:selected").text();
+		
+		if(variationName == "Custom") {
+			jQuery("button[title='Add to Cart']").prop("disabled", true);
+			jQuery(".call-in-order").show();
+			
+		} else {
+			jQuery("button[title='Add to Cart']").prop("disabled", false);
+			jQuery(".call-in-order").hide();
+		}
+	});
+	
 	// Product image carousel
 	jQuery('.product-image-thumbs').carouFredSel({
 		auto: false,

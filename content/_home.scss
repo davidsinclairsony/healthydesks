@@ -1,0 +1,295 @@
+body.cms-home {
+
+    .main-container {
+        padding-top: 20px;
+    }
+
+    .slideshow-container {
+        margin-top: 0;
+    }
+}
+
+.slideshow .banner-msg {
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    top: 30%;
+    @include not-selectable;
+}
+
+.slideshow .banner-msg h2 {
+    color: #FFFFFF;
+    font-size: 24px;
+    @include single-text-shadow(1px, 1px, 3px, false, #555555);
+}
+
+.slideshow .banner-msg h2 strong {
+    font-weight: bold;
+    display: block;
+    font-size: 36px;
+}
+
+@include bp(max-width, $bp-medium) {
+
+    .slideshow .banner-msg h2 {
+        font-size: 20px;
+    }
+
+    .slideshow .banner-msg h2 strong {
+        font-size: 24px;
+    }
+}
+
+@include bp(max-width, $bp-xsmall) {
+
+    .slideshow .banner-msg {
+        top: 20%;
+    }
+
+    .slideshow .banner-msg h2 {
+        font-size: 14px;
+    }
+
+    .slideshow .banner-msg h2 strong {
+        font-size: 16px;
+    }
+}
+
+/* -------------------------------------------- *
+ * Promotion Banner Section
+ */
+
+ul.promos {
+    margin: 0 0 0 0;
+    padding: 0;
+    width: 100%;
+}
+
+.promos:after {
+    @include clearfix;
+}
+
+/* Specifying the body only in order to override the .std ul li styling */
+
+body .promos > li {
+	list-style: none;
+	text-align: center;
+	position: relative;
+	@include not-selectable;
+    
+	a {
+		display: block;		
+	}
+}
+
+.promos > li:last-child {
+    margin-bottom: 0;
+}
+
+.promos img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.promos a:hover {
+    @include opacity(0.8);
+    display: block;
+}
+
+.promos span {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 10%;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: $f-stack-special;
+    @include single-text-shadow(1px, 1px, 3px, false, #555555);
+}
+
+.promos strong {
+    font-weight: 600;
+    font-size: 26px;
+    display: block;
+}
+
+body.cms-home ul.articles {
+	list-style: none;
+	padding: 5px 0 0 0;
+	margin: 0;
+	
+	li {
+		clear: both;
+		border-top: 1px solid $c-module-border;
+		padding: 30px 0;
+		margin: 0;
+		float: left;
+		
+		&:last-child {
+			padding-bottom: 10px;
+		}
+		
+		&:nth-child(n + 2) {
+			article, aside {
+				height: 353px;
+			}
+		}
+		
+		&:nth-child(6) {
+			aside {
+				border-left: 1px solid #efefef;
+			}
+		}
+	
+		article {
+			width: 50%;
+			height: 300px;
+			padding: 0 30px 0 0;
+			float: left;
+			display: table;
+			
+			div {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			
+			h2 {
+				color: $c-link;
+				margin: 0 0 5px 0;
+			}
+			
+			h3 {
+				text-transform: none;
+			}
+		}
+		
+		aside {
+			width: 50%;
+			float: right;
+			height: 300px;
+			display: table;
+			padding: 0 0 0 30px;
+			
+			div {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			
+			img {
+				width: 100%;
+			}
+		}
+		
+		&:nth-child(even) {
+			article {
+				padding: 0 0 0 30px;
+				float: right;
+			}
+			
+			aside {
+				float: left;
+				padding: 0 30px 0 0;
+			}
+		}
+	}
+}
+
+@include bp(min-width, $bp-medium + 1) {
+
+    .promos span {
+        font-size: 16px;
+    }
+
+    .promos strong {
+        font-size: 17px;
+    }
+
+    /* Config: Three columns + flexible gutter */
+    // Container: 480 - (2 * 30 trim wide) = 420
+    // Math: (420 - (2 * 10 gutter)) / 3 items = 133.333333333
+    body .promos > li {
+        float: left;
+        width: percentage(133.333333333 / 420);
+        margin-right: percentage(10 / 420);
+    }
+    
+    .promos > li:nth-child(1n) {
+        margin-left: 0;
+    }
+
+    .promos > li:nth-child(3n) {
+        margin-right: 0;
+    }
+    
+}
+
+@include bp(max-width, $bp-medium) {
+	body .promos > li {
+		margin: 0 !important;
+	
+		&:first-child a div {
+			padding: 0;
+			background: none;
+		}
+		&:nth-child(n + 2) a div {
+			padding: 40px 0 0 0;
+			background: url(../images/arrow-icon.png) no-repeat center 0px;
+		}
+		
+		a {
+			text-align: center;
+		}
+		
+		img {
+			max-width: 400px;
+			display: inline-block;
+		}
+	}
+	
+	body.cms-home ul.articles {
+		li {
+			&:last-child {
+				
+			}
+		
+			article {
+				width: 100%;
+				padding: 0;
+				height: auto !important;
+			}
+			
+			aside {
+				width: 100%;
+				padding: 20px 0 0 0;
+				height: auto !important;
+				
+				img {
+					width: 100%;
+				}
+			}
+			
+			&:nth-child(even) {
+				article {
+					padding: 0;
+				}
+				
+				aside {
+					padding: 20px 0 0 0;
+				}
+			}
+		}
+	}
+}
+
+@include bp(min-width, 880px) {
+	 .promos span {
+        font-size: 18px;
+    }
+
+    .promos strong {
+        font-size: 24px;
+    }
+}

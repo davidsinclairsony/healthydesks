@@ -39,7 +39,13 @@
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
     <div class="product-essential">
-        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <?php 
+        	// HTTPS Submit URL
+        	$url = $this->getSubmitUrl($_product);
+        	$url = str_replace( 'http://', 'https://', $url );
+        ?>
+        
+        <form action="<?php echo $url ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
             <?php echo $this->getBlockHtml('formkey') ?>
             <div class="no-display">
                 <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
@@ -176,41 +182,47 @@
         <?php if ($detailedInfoGroup = $this->getChildGroup('detailed_info', 'getChildHtml')):?>
             <dl id="collateral-tabs" class="collateral-tabs">
                 <?php foreach ($detailedInfoGroup as $alias => $html):?>
+                		<?php
+                			// Insert Stains/Laminate tab before Teview tab
+                			if($this->escapeHtml($this->getChildData($alias, 'title')) == "Reviews") {
+						 			
+						 			// If a Desk (ID: 3), output raw; otherwise, make a table
+									$specialCategories = array(3, 7);
+									$productCategories = $_product->getAvailableInCategories();
+									
+									if(count(array_intersect($specialCategories,$productCategories))) {
+										$material = $_product->getResource()->getAttribute('material')->getFrontend()->getValue($_product);
+										$title = "";
+										$content = "";
+										
+										if($material == "Laminate") {
+											$title = "Colors";
+											$content = $this->getChildHtml('colors');
+										} else if($material == "Bamboo") {
+											$title = "Stains";
+											$content = $this->getChildHtml('stains');
+										}
+									?>
+										
+										<dt class="tab"><span>
+											<?php echo $title; ?>
+										</span></dt>
+										<dd class="tab-container"><div class="tab-content">
+											<?php echo $content; ?>
+										</div></dd>
+										
+									<?php
+									}
+								} ?>
+                
+                
                     <dt class="tab"><span><?php echo $this->escapeHtml($this->getChildData($alias, 'title')) ?></span></dt>
                     <dd class="tab-container">
                         <div class="tab-content"><?php echo $html ?></div>
                     </dd>
                 <?php endforeach;?>
                 
-                <?php
-				    	// If a Desk (ID: 3), output raw; otherwise, make a table
-						$specialCategories = array(3, 7);
-						$productCategories = $_product->getAvailableInCategories();
-						
-						if(count(array_intersect($specialCategories,$productCategories))) {
-							$material = $_product->getResource()->getAttribute('material')->getFrontend()->getValue($_product);
-							$title = "";
-							$content = "";
-							
-							if($material == "Laminate") {
-								$title = "Colors";
-								$content = $this->getChildHtml('colors');
-							} else if($material == "Bamboo") {
-								$title = "Stains";
-								$content = $this->getChildHtml('stains');
-							}
-						?>
-							
-							<dt class="tab"><span>
-								<?php echo $title; ?>
-							</span></dt>
-							<dd class="tab-container"><div class="tab-content">
-								<?php echo $content; ?>
-							</div></dd>
-							
-						<?php
-						}
-					 ?>
+                
             </dl>
         <?php endif; ?>
     </div>

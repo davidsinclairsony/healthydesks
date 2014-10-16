@@ -1,0 +1,55 @@
+body.cms-our-story {
+	h2 {
+		text-transform: none;
+		font-weight: bold;
+		font-size: 20px;
+		
+		&:nth-of-type(n + 2) {
+			padding: 20px 0 0 0;
+		}
+	}
+	
+	.two-columns {
+		display: table;
+		table-layout: fixed;
+		
+		&:nth-of-type(n + 2) {
+			padding: 20px 0 0 0;
+		}
+		
+		> * {
+			display: table-cell;
+			width: 50%;
+			padding: 0 20px 0 0;
+			vertical-align: top;
+			
+			&:last-child {
+				padding: 0 0 0 20px;
+			}
+		}
+	}
+
+	@include bp(max-width, $bp-large) {
+	   .two-columns {
+			display: block;
+			
+			&:nth-of-type(n + 2) {
+				padding: 20px 0 0 0;
+			}
+			
+			> * {
+				display: block;
+				width: 100%;
+				padding: 0;
+				
+				&:last-child {
+					padding: 0;
+				}
+			}
+		}
+	}
+	
+	@include bp(max-width, $bp-medium) {
+		
+	}
+}

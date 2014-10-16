@@ -1103,7 +1103,7 @@ h6, .h6 {
   text-transform: uppercase;
   font-size: 24px;
   font-weight: 600;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #a4dbff;
   padding-bottom: 3px;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -1388,7 +1388,7 @@ a.button:hover {
   clear: both;
   margin: 10px 0 0;
   padding-top: 10px;
-  border-top: 1px solid white;
+  border-top: 1px solid #a4dbff;
   text-align: right;
 }
 .buttons-set p.required {
@@ -1477,7 +1477,7 @@ a.button:hover {
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 1px solid white;
+  border: 1px solid #a4dbff;
   text-align: center;
   /* Hide text */
   font: 0/0 a;
@@ -2179,7 +2179,7 @@ a.button:hover {
 .no-touch .product-img-box .product-image:not(.zoom-available):hover {
   position: relative;
   display: block;
-  border: 1px solid white;
+  border: 1px solid #a4dbff;
 }
 
 .no-touch .product-image:hover {
@@ -2682,7 +2682,7 @@ form .legend {
   text-transform: uppercase;
   margin-bottom: 15px;
   padding-bottom: 7px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #a4dbff;
 }
 
 /* -------------------------------------------- *
@@ -4510,7 +4510,7 @@ p.product-name a:hover {
 .products-list > li {
   padding-bottom: 20px;
   margin-bottom: 20px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #a4dbff;
 }
 .products-list > li:after {
   content: '';
@@ -5087,7 +5087,7 @@ p.product-name a:hover {
 }
 .product-img-box .product-image a:hover .zoom-message {
   color: #0083d7;
-  background: white;
+  background: #a4dbff;
 }
 
 .product-image-gallery {
@@ -5141,7 +5141,7 @@ p.product-name a:hover {
 }
 .product-image-thumbs a {
   display: inline-block;
-  border: 1px solid #b3e1ff;
+  border: 1px solid #58beff;
 }
 
 .product-view .product-shop,
@@ -5684,6 +5684,13 @@ p.product-name a:hover {
   max-width: 100%;
 }
 
+/* -------------------------------------------- *
+ * For custom orders
+ */
+.call-in-order {
+  display: none;
+}
+
 /**
  * Magento
  *
@@ -5772,7 +5779,7 @@ p.product-name a:hover {
   text-align: center;
 }
 .map-popup .map-popup-content {
-  border-top: 1px solid white;
+  border-top: 1px solid #a4dbff;
   padding: 10px;
   margin: 0 10px;
   overflow: hidden;
@@ -5844,7 +5851,7 @@ p.product-name a:hover {
 }
 .map-popup .map-popup-text,
 .map-popup .map-popup-only-text {
-  border-top: 1px solid white;
+  border-top: 1px solid #a4dbff;
 }
 
 /**
@@ -5978,7 +5985,7 @@ p.product-name a:hover {
  * ============================================ */
 .cart .page-title {
   margin-bottom: 15px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #a4dbff;
 }
 .cart .page-title:after {
   content: '';
@@ -7191,14 +7198,14 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
 }
 .customer-account-login .col2-set .col-2 {
   padding-left: 20px;
-  border-left: 1px solid white;
+  border-left: 1px solid #a4dbff;
 }
 .customer-account-login .col2-set .col-1 {
   padding-right: 0;
 }
 .customer-account-login .col2-set .col-2 {
   padding-left: 60px;
-  border-left: 1px solid white;
+  border-left: 1px solid #a4dbff;
 }
 
 .customer-account-create .scaffold-form label:first-child {
@@ -7419,7 +7426,7 @@ body.customer-account .sidebar .block-reorder ol#cart-sidebar-reorder p.product-
 }
 .dashboard .box-reviews li {
   padding: 10px 0;
-  border-top: 1px solid white;
+  border-top: 1px solid #a4dbff;
 }
 .dashboard .box-reviews li:first-child {
   border-top: 0;
@@ -7472,7 +7479,7 @@ body.customer-account .sidebar .block-reorder ol#cart-sidebar-reorder p.product-
  * ============================================ */
 .order-info {
   padding-bottom: 10px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #a4dbff;
   width: 100%;
   margin-bottom: 30px;
 }
@@ -7506,7 +7513,7 @@ body.customer-account .sidebar .block-reorder ol#cart-sidebar-reorder p.product-
 }
 .order-info-box + .order-info-box {
   padding-bottom: 40px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #a4dbff;
 }
 .order-info-box .col-1 {
   padding-right: 0;
@@ -8374,7 +8381,7 @@ div.paypal-logo span > img {
   text-transform: uppercase;
   margin-right: 7px;
   padding-right: 7px;
-  border-right: 1px solid white;
+  border-right: 1px solid #a4dbff;
 }
 
 /**
@@ -8666,11 +8673,11 @@ div.paypal-logo span > img {
  * ============================================ */
 .advanced-search {
   background: #F4F4F4;
-  border: 1px solid white;
+  border: 1px solid #a4dbff;
   padding: 30px;
 }
 .advanced-search select.multiselect option {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #a4dbff;
   padding: 2px 5px;
 }
 

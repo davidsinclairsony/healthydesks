@@ -46,5 +46,13 @@
 	</reference>
 </contacts_index_index>
 
+ <checkout_cart_index>
+	<reference name="content">
+		<block name="checkout.cart">
+			<remove name="checkout.cart.coupon"/>
+		</block>
+	</reference>
+</checkout_cart_index>
+
 
 </layout>

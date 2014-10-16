@@ -1,0 +1,128 @@
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/* ============================================ *
+ * Contacts
+ * ============================================ */
+
+.contacts-index-index {
+	.two-columns {
+		display: table;
+		table-layout: fixed;
+		padding: 20px 0 0 0;
+		width: 100%;
+		
+		* {
+			box-sizing: border-box;
+		}
+		
+		> * {
+			display: table-cell;
+			vertical-align: top;
+			width: 35%;
+			
+			&:last-child {
+				padding: 0 0 0 80px;
+				width: 65%;
+				
+				img {
+					 width: 100%;
+				 }
+			}
+		}
+	}
+
+    .buttons-set {
+        max-width: 435px;
+
+        p.required {
+            float: left;
+        }
+
+        @include bp(max-width, $bp-small) {
+            max-width: 330px;
+            margin-left: 0;
+
+            button {
+                float: left;
+                margin-left: 0px;
+            }
+
+            p.required {
+                float: right;
+            }
+        }
+    }
+}
+
+#contactForm {
+	h2 {
+        display: none;
+    }
+
+    &:after {
+        @include clearfix;
+    }
+
+    .fieldset .legend + .required {
+        margin: 0;
+    }
+}
+
+@include bp(max-width, $bp-large) {
+
+    .contacts-index-index {
+		.two-columns {
+			> * {
+				&:last-child {
+					padding: 0 0 0 40px;
+				}
+			}
+		}
+	}
+}
+
+@include bp(max-width, $bp-medium) {
+
+    .contacts-index-index {
+		.two-columns {
+			display: block;
+			
+			> * {
+				display: block;
+				width: 100%;
+			
+				&:last-child {
+					padding: 20px 0 0 0;
+					width: 100%;
+					
+					img {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
