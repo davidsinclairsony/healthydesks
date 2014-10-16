@@ -177,7 +177,7 @@ $c-module-background: #F4F4F4;
 // This should be applied whenever the border is surrounding a white element and/or is directly showing on white.
 $c-module-border: lighten($c-blue, 40%); /* #CCCCCC; */
 // This should be applied whenever the border is wrapping an element with $c-module-background
-$c-module-border-light: lighten($c-blue, 60%);
+$c-module-border-light: lighten($c-blue, 40%);
 $c-module-border-highlight: $c-blue;
 
 // Table
