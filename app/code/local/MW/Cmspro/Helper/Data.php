@@ -217,6 +217,50 @@ class MW_Cmspro_Helper_Data extends Mage_Core_Helper_Abstract
 			Mage::getModel('core/config')->saveConfig("advanced/modules_disable_output/".self::MYNAME,1);	
 			Mage::getConfig()->reinit();
 	}
-	
+
+    public function isEnabled()
+    {
+        if(Mage::getStoreConfig('advanced/modules_disable_output/MW_Cmspro'))
+        {
+            return false;
+        }
+
+        return true;
+    }
+    
+    public function makeStringFriendly($text)
+    {
+        //Characters must be in ASCII
+        $text = html_entity_decode($text);
+        $text = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/','a',$text);
+        $text = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/','e',$text);
+        $text = preg_replace('/(ì|í|ị|ỉ|ĩ)/','i',$text);
+        $text = preg_replace('/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/', 'o', $text);
+        $text = preg_replace('/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/', 'u', $text);
+        $text = preg_replace('/(ỳ|ý|ỷ|ỵ|ỹ)/','y',$text);
+        $text = preg_replace('/(đ)/', 'd', $text);
+        $text = preg_replace('/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẫ|Ẩ|Ă|Ằ|Ắ|Ẳ|Ặ|Ẵ)/','A', $text);
+        $text = preg_replace('/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ể|Ễ|Ệ)/', 'E', $text);
+        $text = preg_replace('/(Ì|Í|Ỉ|Ị|Ĩ)/', 'I', $text);
+        $text = preg_replace('/(Ò|Ó|Ỏ|Ọ|Õ|Ô|Ồ|Ố|Ổ|Ộ|Ỗ|Ơ|Ờ|Ớ|Ở|Ợ|Ỡ)/','O', $text);
+        $text = preg_replace('/(Ù|Ú|Ủ|Ụ|Ũ|Ư|Ừ|Ứ|Ử|Ự|Ữ)/', 'U', $text);
+        $text = preg_replace('/(Ỳ|Ý|Ỷ|Ỵ|Ỹ)/', 'Y', $text);
+        $text = preg_replace('/(Đ)/', 'D', $text);
+        
+        //Special string
+        $text = preg_replace('/(!|@|"|#|\$|%|\^|\(|\)|{|}|\[|\]|\*|~|`|=|\+|\'|;|,|:|&|<|>|\?|\/)/', '', $text);
+        
+        $text = str_replace(' - ','-',$text);
+        $text = str_replace('_','-',$text);
+        $text = str_replace(' ','-',$text);
+        //$text = ereg_replace('[^A-Za-z0-9-]', '', $text);
+        
+        $text = str_replace('----','-',$text);
+        $text = str_replace('---','-',$text);
+        $text = str_replace('--','-',$text);
+        
+        $text = strtolower($text);
+        return $text;
+    }
 	
 }

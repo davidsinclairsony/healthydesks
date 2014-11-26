@@ -37,7 +37,7 @@
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
-<div class="product-view">
+<div class="product-view" itemscope itemtype="http://schema.org/Product">
     <div class="product-essential">
         <?php 
         	// HTTPS Submit URL
@@ -54,7 +54,7 @@
 
             <div class="product-img-box">
                 <div class="product-name">
-                    <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                    <h1 itemprop="name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                 </div>
                 <?php echo $this->getChildHtml('media') ?>
             </div>
@@ -71,14 +71,16 @@
                 </div>
 
                 <div class="extra-info">
-                    <?php echo $this->getReviewsSummaryHtml($_product, 'default', false)?>
+                    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+	                    <?php echo $this->getReviewsSummaryHtml($_product, 'default', false)?>
+                    </div>
                     <?php echo $this->getChildHtml('product_type_availability'); ?>
                 </div>
 
                 <?php echo $this->getChildHtml('alert_urls') ?>
 
                 <?php if ($_product->getShortDescription()):?>
-                    <div class="short-description">
+                    <div class="short-description" itemprop="description">
                         <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
                     </div>
                 <?php endif;?>

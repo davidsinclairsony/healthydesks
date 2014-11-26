@@ -104,7 +104,7 @@ class MW_Cmspro_Model_Category extends Mage_Core_Model_Abstract
      * @param unknown_type $last
      * @return unknown
      */
-    public function drawItem($category, $level=0, $last=false,$current_cat_id="")
+    public function drawItem($category, $level=1, $last=false,$current_cat_id="")
     {
         $html = '';
 		
@@ -115,7 +115,7 @@ class MW_Cmspro_Model_Category extends Mage_Core_Model_Abstract
         // Find Current Category
 		
         if (sizeof($childs->getData())>0) {
-             $html.= ' onmouseover="toggleMenu(this,1)" onmouseout="toggleMenu(this,0)"';
+             $html.= '';
         }
 		
         $html.= ' class="level'.$level;
@@ -332,10 +332,10 @@ class MW_Cmspro_Model_Category extends Mage_Core_Model_Abstract
 			$url = "";
 			$rq_path = "";
 			if($cat->getIdentifier()){
-				$rq_path = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($this->getRootNameFromConfig()));
-				$rq_path = strtolower($rq_path);
-				$identifier = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($cat->getIdentifier()));
-				$identifier = strtolower($identifier);				
+				$rq_path = Mage::helper('cmspro')->makeStringFriendly($this->getRootNameFromConfig());
+				
+				$identifier = Mage::helper('cmspro')->makeStringFriendly($cat->getIdentifier());
+								
 				$rq_path = $rq_path."/".$identifier;
 			}else{
 				$paths = explode('/',trim($cat->getRootPath()));
@@ -345,12 +345,12 @@ class MW_Cmspro_Model_Category extends Mage_Core_Model_Abstract
 						if($parent->getName()!=""){
 							$url = "";
 							if($parent->getLevel()!='1' || $parent->getParentId()!='0'){
-								$url = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($parent->getName()));
-								$url = strtolower($url);
+								$url = Mage::helper('cmspro')->makeStringFriendly($parent->getName());
+								
 								$rq_path .= "/".$url;
 							}else{
-								$url = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($this->getRootNameFromConfig()));
-								$url = strtolower($url);
+								$url = Mage::helper('cmspro')->makeStringFriendly($this->getRootNameFromConfig());
+							
 								$rq_path .=$url;
 							}
 						}
@@ -368,7 +368,6 @@ class MW_Cmspro_Model_Category extends Mage_Core_Model_Abstract
 					if($u->getUrlRewriteId()!=$cat->getUrlRewriteId()) $dulicate = true;
 				}
 			}
-			
 			$rq_path2 = "";
 			if($dulicate)
 	     		$rq_path2 = trim($rq_path).rand(100,999999).$suffix;
@@ -390,7 +389,6 @@ class MW_Cmspro_Model_Category extends Mage_Core_Model_Abstract
 					'is_system'	   => 0,
 					'options'	   => 0,
 				);
-
 	     	$url_cat->setData($data);
 	     	$url_cat->save();
 	     	
@@ -401,6 +399,7 @@ class MW_Cmspro_Model_Category extends Mage_Core_Model_Abstract
 	}
 	
 	public function createRoot(){
+	   	
 		$root = $this->getCollection()->addFieldToFilter('level','1')->addFieldToFilter('parent_id','0');
     	if($root->count()==0){
 			$data = array(
@@ -447,7 +446,7 @@ class MW_Cmspro_Model_Category extends Mage_Core_Model_Abstract
 						'is_system'	   => 0,
 						'options'	   => 0,
 					);
-					
+				
 			$url_model = Mage::getModel('core/url_rewrite');
 			$url_model->setData($data_rewrite);
 	     	$url_model->save();

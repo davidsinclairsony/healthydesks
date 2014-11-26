@@ -8,8 +8,8 @@ if($displayside!=2){
 						<div class="block-title">
 							<strong><span><?php echo Mage::helper('cmspro')->__('Search News') ?></span></strong>
 						</div>
-						<form action="<?php echo $this->getFormActionUrl() ?>" method="get" id="cmspro-search">
-							<div class="block-content">
+						<div class="block-content">
+							<form action="<?php echo $this->getFormActionUrl() ?>" method="get" id="cmspro-search">
 								<div><label for="keyword"><?php echo Mage::helper('cmspro')->__('Enter your keyword:') ?></label></div>
 								<div class="input-box">
 								   <input type="text" name="keyword" id="keyword" title="<?php echo Mage::helper('cmspro')->__('Enter your keyword') ?>" class="input-text required-entry" />
@@ -17,14 +17,14 @@ if($displayside!=2){
 								<div class="actions">
 									<button type="submit" title="<?php echo Mage::helper('cmspro')->__('Go') ?>" class="button"><span><span><?php echo Mage::helper('cmspro')->__('Go') ?></span></span></button>
 								</div>
-							</div>
-						</form>
-						<script type="text/javascript">
-						//<![CDATA[
-							var newsletterSubscriberFormDetail = new VarienForm('cmspro-search');
-						//]]>
-						</script>
+							</form>
+							<script type="text/javascript">
+							//<![CDATA[
+								var newsletterSubscriberFormDetail = new VarienForm('cmspro-search');
+							//]]>
+							</script>
 					</div>
+				</div>
 
 <?php };
 }?>

@@ -1,0 +1,17 @@
+<script type="text/javascript">
+var url = "<?php echo Mage::helper('adminhtml')->getUrl('cmspro_admin/adminhtml_news/autocomplete') ?>" ;
+jQuery(document).ready(function(){
+	jQuery("#news_tags").fcbkcomplete({
+        json_url: url,
+        maxitems: 10,
+        height: 10,
+        //cache: true,
+        newel: true,
+        //select_all_text: "select all tag",
+        filter_selected: true,
+        filter_begin: true,
+        delay: 500,
+        input_min_size:0,
+    });
+});
+</script>

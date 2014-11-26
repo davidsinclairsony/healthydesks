@@ -2,7 +2,7 @@
 <config>
     <modules>
         <MW_Cmspro>
-            <version>3.0.1</version>
+            <version>3.1.2</version>
         </MW_Cmspro>
     </modules>
     <frontend>
@@ -47,7 +47,7 @@
   		<menu>
   			<cmspro module="cmspro">
   				<title>Cms Pro</title>
-  				<sort_order>71</sort_order>               
+  				<sort_order>71</sort_order>
   				<children>
   					<addnews module="cmspro" translate="title">
   						<title>Add News</title>
@@ -91,7 +91,7 @@
   					<children>
   						<cmspro module="cmspro">
   							<title>Cms Pro</title>
-  							<sort_order>71</sort_order>               
+  							<sort_order>71</sort_order>
   							<children>
   								<addnews module="cmspro" translate="title">
   									<title>Add News</title>
@@ -150,13 +150,13 @@
   				</MW_Cmspro>
   			</modules>
   		</translate>
-    </adminhtml>  
+    </adminhtml>
     <global>
     	<!-- <rewrite>
 			<mw_cmspro_process>
 				<from><![CDATA[#^/admin/process/#]]></from>
 				<to>/cmspro_admin/adminhtml_process/</to>
-			</mw_cmspro_process>			
+			</mw_cmspro_process>
 		</rewrite> -->
         <models>
             <cmspro>
@@ -213,13 +213,13 @@
                     </news_category_backup>
                 </entities>
             </cmspro_mysql4>
-            
+
             <sitemap>
            		<rewrite>
            			<sitemap>MW_Cmspro_Model_Sitemap</sitemap>
            		</rewrite>
            </sitemap>
-           
+
         </models>
         <resources>
             <cmspro_setup>
@@ -263,11 +263,11 @@
                 </rewrite>
             </page>-->
 
-            <adminhtml>
+            <!--<adminhtml>
                 <rewrite>
                     <page_head>MW_Cmspro_Block_Page_Html_Head</page_head>
                 </rewrite>
-            </adminhtml>
+            </adminhtml>-->
             <!--
 			<page>
 				<rewrite>
@@ -305,7 +305,7 @@
 						<method>syntaxHighlighter</method>
 					</cmspro>
 				</observers>
-			</controller_action_layout_generate_blocks_after>  
+			</controller_action_layout_generate_blocks_after>
 			<cms_wysiwyg_config_prepare>
                 <observers>
                     <cmspro>
@@ -314,7 +314,7 @@
                         <method>preparePluginConfig</method>
                     </cmspro>
                 </observers>
-            </cms_wysiwyg_config_prepare>  
+            </cms_wysiwyg_config_prepare>
 		</events>
     </global>
     <default>

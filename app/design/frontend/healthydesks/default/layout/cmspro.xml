@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
     <default>
-    	<reference name="head">
+    	<!-- <reference name="head">
 			<action method="addJs"><script>mw_js/jquery.js</script></action>
 			<action method="addJs"><script>mw_js/jquery_noconflict.js</script></action>			
 			<action method="addItem"><type>skin_js</type><name>cmspro/js/accordion.js</name></action>
@@ -14,7 +14,7 @@
 			<action method="addCss"><stylesheet>cmspro/css/superfish-vertical.css</stylesheet></action>			
 			<action method="addCss"><stylesheet>css/cmspro/cmspro.css</stylesheet></action>		
 			<action method="addItem"><type>skin_css</type><name>css/cmspro-iestyles.css</name><params/><if>lt IE 8</if></action>
-		</reference>
+		</reference> -->
 		
         <!-- Mage_Catalog -->
 		<!--

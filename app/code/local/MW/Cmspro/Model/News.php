@@ -23,10 +23,10 @@ class MW_Cmspro_Model_News extends Mage_Core_Model_Abstract
 			}else{
 				$url_key = $news->getTitle();
 			}
-			$root = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($this->getRootNameFromConfig()));
-			$root = strtolower($root);
-			$url_key = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($url_key));
-			$url_key = strtolower($url_key);
+			$root = Mage::helper('cmspro')->makeStringFriendly(($this->getRootNameFromConfig()));
+			
+			$url_key = Mage::helper('cmspro')->makeStringFriendly(($url_key));
+			
 			$rq_path = $root."/".$url_key;
 			$rq_path1 = trim($rq_path, '-').$suffix;
 			

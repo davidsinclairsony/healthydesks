@@ -1,5 +1,4 @@
 <?php
-
 class MW_Cmspro_Adminhtml_NewsController extends Mage_Adminhtml_Controller_action
 {
 	protected $_tagOptionsArray = array();
@@ -257,10 +256,10 @@ class MW_Cmspro_Adminhtml_NewsController extends Mage_Adminhtml_Controller_actio
 				$data['identifier'] = $data['title'];
 			}
 			
-			$root = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format(Mage::getModel('cmspro/category')->getCurrentRoot()->getName()));
-			$root = strtolower($root);
-			$url_key = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($url_key));
-			$url_key = strtolower($url_key);
+			$root = Mage::helper('cmspro')->makeStringFriendly(Mage::getModel('cmspro/category')->getCurrentRoot()->getName());
+			
+			$url_key = Mage::helper('cmspro')->makeStringFriendly(($url_key));
+			
 			$rq_path = $root."/".$url_key;
 			$rq_path1 = trim($rq_path, '-').$suffix;
 			
@@ -337,7 +336,7 @@ class MW_Cmspro_Adminhtml_NewsController extends Mage_Adminhtml_Controller_actio
 		     	// }
 				$url_model = Mage::getModel('core/url_rewrite');
 		     	if($current_news->getUrlRewriteId()=="0") { 
-					$url_model->setData($url_rewrite);
+					$url_model->setData($url_rewrite);                    
 					$url_model->save();
 					$model->setUrlRewriteId($url_model->getId());
 					$model->save();
@@ -521,15 +520,15 @@ class MW_Cmspro_Adminhtml_NewsController extends Mage_Adminhtml_Controller_actio
 				$data['identifier'] = $data['title'];
 			}
 			
-			$root = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format(Mage::getModel('cmspro/category')->getCurrentRoot()->getName()));
-			$root = strtolower($root);
-			$url_key = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($url_key));
+			$root = Mage::helper('cmspro')->makeStringFriendly((Mage::getModel('cmspro/category')->getCurrentRoot()->getName()));
+			
+			$url_key = Mage::helper('cmspro')->makeStringFriendly(($url_key));
 			if($i == 2) {
 				$url_key = $url_key.'-new';
 				$data['identifier'] = $data['identifier'].' new';
 				
 			}
-			$url_key = strtolower($url_key);
+			
 			$rq_path = $root."/".$url_key;
 			$rq_path1 = trim($rq_path, '-').$suffix;
 			

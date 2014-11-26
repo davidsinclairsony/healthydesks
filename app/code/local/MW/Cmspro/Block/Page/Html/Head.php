@@ -6,6 +6,12 @@
  */
 
 class MW_Cmspro_Block_Page_Html_Head extends Mage_Page_Block_Html_Head{
+    public function __construct()
+    {
+        if(Mage::getStoreConfig('advanced/modules_disable_output/MW_Cmspro')){
+            parent::_construct();
+        }
+    }
     /**
      * Get HEAD HTML with CSS/JS/RSS definitions
      * (actually it also renders other elements, TODO: fix it up or rename this method)

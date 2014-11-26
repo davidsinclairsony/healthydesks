@@ -67,4 +67,9 @@ $_renderers = $this->getChild('attr_renderers')->getSortedChildren();
 <?php endif;?>
 
 <!-- For orders that need to be called about -->
-<p class="call-in-order">Please call 800-872-0560 for purchasing a Custom finish.</p>
+<p class="call-in-order">
+	Please call
+	<a href="tel:<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>">
+		<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>
+	</a>
+	for purchasing a Custom finish.</p>

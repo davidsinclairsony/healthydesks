@@ -5689,7 +5689,13 @@ p.product-name a:hover {
  */
 .call-in-order {
   display: none;
+  color: red;
   font-weight: bold;
+}
+.call-in-order a {
+  color: red;
+}
+.call-in-order a:hover {
   color: red;
 }
 
@@ -7985,7 +7991,7 @@ div.paypal-logo span > img {
   height: 13px;
   overflow: hidden;
   text-indent: -9999px;
-  /* width: 65px; */
+  width: 65px;
 }
 .ratings-table .rating-box .rating {
   background-position: 0 -600px;

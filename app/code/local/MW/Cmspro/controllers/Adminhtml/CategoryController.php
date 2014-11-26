@@ -59,7 +59,6 @@ class MW_Cmspro_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_A
 		$this->_forward('edit');
 	}
 
-    
 	public function saveAction() {
 		if ($this->getRequest()->getPost()) {
 			$data = $this->getRequest()->getPost(); 
@@ -216,38 +215,44 @@ class MW_Cmspro_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_A
 				$rq_path = "";
 				$identifier = isset($data['identifier']) ? $data['identifier'] : $data['name'];
 				if($identifier!=""){
-					$rq_path = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format(Mage::getModel('cmspro/category')->getCurrentRoot()->getName()));
-					$rq_path = strtolower($rq_path);
-					$identifier = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($identifier));
-					$identifier = strtolower($identifier);				
+					$rq_path = Mage::helper('cmspro')->makeStringFriendly(Mage::getModel('cmspro/category')->getCurrentRoot()->getName());
+					
+					$identifier = Mage::helper('cmspro')->makeStringFriendly($identifier);
+				
 					$rq_path = $rq_path."/".$identifier;
 				}else{
 					//echo $current_cat->getRootPath();exit;
 					$paths = explode('/',trim($current_cat->getRootPath()));
+                    
 					foreach($paths as $key=>$parent){
 							if($parent!=""){
 								$parent = Mage::getModel('cmspro/category')->load($parent);
 								if($parent->getName()!=""){
 									$url = "";
 									if($parent->getLevel()!='1' || $parent->getParentId()!='0'){
-										$url = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format($parent->getName()));
-										$url = strtolower($url);
+										$url = Mage::helper('cmspro')->makeStringFriendly($parent->getName());
+										
 										$rq_path .= "/".$url;
+                                        
+                                        
 									}else{
-										$url = preg_replace('#[^0-9a-z]+#i', '-', Mage::helper('catalog/product_url')->format(Mage::getModel('cmspro/category')->getCurrentRoot()->getName()));
-										$url = strtolower($url);
+										$url = Mage::helper('cmspro')->makeStringFriendly(Mage::getModel('cmspro/category')->getCurrentRoot()->getName());
+										
 										$rq_path .=$url;
+                                        
+                                        
 									}
 								}
 							}
 						}
 				}
-				$rq_path1 = trim($rq_path).$suffix;				
+				$rq_path1 = $rq_path.$suffix;				
 		     	$url_rewrite['request_path'] = $rq_path1;
 		     	$url_rewrite['target_path'] = 'cmspro/category/view/id/'.$model->getId();
 		     	$url_rewrite['id_path'] = $rq_path1;
 		     	$url_rewrite['is_system'] = 0;
 		     	$url_rewrite['options'] = 0;
+                
 
 				$current_cat = Mage::getModel('cmspro/category')->load($model->getId());
 		     	if( (!$current_cat->getUrlRewriteId()) OR $current_cat->getUrlRewriteId()=="0" ) {
@@ -261,6 +266,7 @@ class MW_Cmspro_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_A
 			     	
 			     	$url_model = Mage::getModel('core/url_rewrite');
 					$url_model->setData($url_rewrite);
+                    //var_dump($url_model);exit;
 					$url_model->save();
 					$model->setUrlRewriteId($url_model->getId());
 					$model->save();
@@ -277,6 +283,7 @@ class MW_Cmspro_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_A
 			     	}
 			     	$url_model = Mage::getModel('core/url_rewrite')->load($current_cat->getUrlRewriteId());
 					$url_model->setData($url_rewrite)->setId($current_cat->getUrlRewriteId());
+                    //var_dump($url_model);exit;
 					$url_model->save();
 				}
 				$model->reindexCategory();

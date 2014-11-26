@@ -1,14 +1,16 @@
 
 <?php $deeplevel = Mage::getStoreConfig("mw_cmspro/left_menu_category/deeplevel"); ?> 
 <?php if( (Mage::getModel('cmspro/category')->getMainCategories()->count()>0)):?>
-	<div class="mv_smartmenu_news">
+	<div class="mv_smartmenu_news block">
 		<div class="mw_menu">
 			<div class="mw_menu_head">
-				<h4 class="title">
-					<a href="<?php echo Mage::getBaseUrl().$this->_getRootURL(); ?>"><?php echo $this->_getRootName(); ?></a>
-				</h4>
+				<?php /* <h4 class="title"><a href="<?php echo Mage::getBaseUrl().$this->_getRootURL(); ?>"><?php echo $this->_getRootName(); ?></a></h4> */ ?>
+				
+				<div class="block-title">
+					<strong><span>Categories</span></strong>
+				</div>
 			</div>
-			<ul class="sf-menu sf-vertical sf-js-enabled sf-shadow"> 
+			<ul class="block-content sf-menu sf-vertical sf-js-enabled sf-shadow"> 
 			<?php
 				$_main_categories = Mage::getModel('cmspro/category')->getMainCategories();
 				foreach ($_main_categories as $_main_category):	
