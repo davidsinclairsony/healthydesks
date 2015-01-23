@@ -1,4 +1,10 @@
 User-Agent: *
-Disallow: 
+
+Disallow: /catalogsearch/
+Disallow: /review/
+Disallow: /sendfriend/
+Disallow: /wishlist/
+Disallow: /customer/
+Disallow: /product_compare/
 
 Sitemap: https://healthydesks.com/sitemap.xml

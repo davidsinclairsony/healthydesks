@@ -31,7 +31,7 @@
 <header id="header" class="page-header">
     <div class="page-header-container">
         <div itemscope itemtype="http://schema.org/Organization">
-	        <a itemprop="url" class="logo" href="<?php echo $this->getUrl('') ?>">
+	        <a itemprop="url" class="logo" href="<?php echo $this->getUrl('',array('_secure'=>true)) ?>">
 	            <img itemprop="logo" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="large" />
 	            <img src="<?php echo $this->getLogoSrcSmall() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="small" />
 	        </a>
